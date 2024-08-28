@@ -1,0 +1,251 @@
+
+/* add button for alumini */
+
+.button {
+  --width: 100px;
+  --height: 35px;
+  --tooltip-height: 35px;
+  --tooltip-width: 90px;
+  --gap-between-tooltip-to-button: 18px;
+  --button-color: #fff3f3;
+  --tooltip-color: #fff;
+  width: var(--width);
+  height: var(--height);
+  background: rgb(5, 166, 85);
+  position: relative;
+  text-align: center;
+  border-radius: 0.45em;
+  font-family: "Arial";
+  transition:  0.3s;
+}
+
+.button::before {
+  position: absolute;
+  content: attr(data-tooltip);
+  width: var(--tooltip-width);
+  height: var(--tooltip-height);
+  background-color: #555;
+  font-size: 0.9rem;
+  color: #fff;
+  border-radius: .25em;
+  line-height: var(--tooltip-height);
+  bottom: calc(var(--height) + var(--gap-between-tooltip-to-button) + 10px);
+  left: calc(50% - var(--tooltip-width) / 2);
+}
+
+.button::after {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: #555;
+  left: calc(50% - 10px);
+  bottom: calc(100% + var(--gap-between-tooltip-to-button) - 10px);
+}
+
+.button::after,.button::before {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s;
+}
+
+.text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-wrapper,.text,.icon {
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  color: #fff;
+}
+
+.text {
+  top: 0;
+  font-family: var(--font-rubik);
+  font-size:18px;
+}
+
+.text,.icon {
+  transition: top 0.5s;
+}
+
+.icon {
+  color: #fff;
+  top: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.button:hover {
+  background: #4dc7ff;
+}
+
+.button:hover .text {
+  top: -100%;
+}
+
+.button:hover .icon {
+  top: 0;
+}
+
+.button:hover:before,.button:hover:after {
+  opacity: 1;
+  visibility: visible;
+}
+
+.button:hover:after {
+  bottom: calc(var(--height) + var(--gap-between-tooltip-to-button) - 20px);
+}
+
+.button:hover:before {
+  bottom: calc(var(--height) + var(--gap-between-tooltip-to-button));
+}
+
+
+/* alumini table for admin */
+
+#myTable_wrapper
+{
+    font-family: var(--font-rubik);
+    width:95%;
+    margin:auto;
+    margin-top:25px;
+    background-color: var(--snow-white);
+    padding:20px 10px;
+    border-radius:10px;
+    overflow-x: auto;
+}
+#myTable th
+{
+    font-family: var(--font-roboto);
+    font-size: 20px;
+}
+#myTable th:nth-child(4)
+{
+    width: 150px;
+    text-align: left;
+}
+#myTable tr td{
+    text-align: left;
+        font-size: 18px;
+}
+
+#option_list
+{
+    padding-top:65px;
+    display: flex;
+    padding-left:40px;
+    padding-right:50px;
+    justify-content: flex-end;
+}
+#add_btn svg
+{
+    fill: #ff0000 !important;
+    height:25px;
+    width:25px;
+}
+
+/* delete button for alumini */
+#action
+{
+    display:flex;
+}
+#del svg
+{
+    width:18px;
+    height:18px;
+        transition:0.3s;
+}
+#del
+{
+    position : relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width:calc(100% - 10px);
+    cursor:pointer;
+    margin:0 3%;
+
+}
+#del span 
+{
+        transition:0.3s; 
+}
+#del::after
+{
+    position:absolute;
+    bottom:0;
+    left:0;
+    content:'';
+    height:2px;
+    width:100%;
+    background-color: #ff0000;
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:0.3s;
+}
+#del:hover::after
+{
+    transform:scaleX(1);
+}
+#del:hover span ,#del:hover svg
+{
+    color:#ff0000;
+}
+
+/* update style for alumini */
+
+#update svg
+{
+    width:20px;
+    height:20px;
+    transition:0.3s;
+}
+#update
+{
+    position : relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width:calc(100% - 10px);
+    cursor:pointer;
+    margin:0 4px;
+}
+#update span 
+{
+        transition:0.3s; 
+}
+#update::after
+{
+    position:absolute;
+    bottom:0;
+    left:0;
+    content:'';
+    height:2px;
+    width:100%;
+    background-color: #fc7a00;
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:0.3s;
+}
+#update:hover::after
+{
+    transform:scaleX(1);
+}
+#update:hover span ,#update:hover svg
+{
+    color:#fc7a00;
+}
+

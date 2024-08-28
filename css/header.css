@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+*
+{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+
+
+:root{
+    --mediam-blue:#1d3bb0;
+    --thick-blue:#1e378a;
+    --highlight-blue:#1c48d9;
+    --button-blue:#3166ed;
+    --snow-white:#fafdff;
+    --off-white:#faf9f6;
+    --ghost-white:#f0f8ff;
+    --font-roboto:"Roboto Slab", serif;
+    --font-rubik:"Rubik", sans-serif; 
+    --nav-color:rgb(0, 208, 255);
+}
+
+body
+{
+
+    background-color:var(--off-white);
+ 
+}
+header
+{
+    height: 60px;
+    font-family: var(--font-rubik);
+    z-index:10;
+    position:sticky;
+    top:0;
+}
+header h4{
+    color:var(--snow-white);
+      font-family: var(--font-roboto);
+    margin-left:10px;
+}
+#logo
+{
+    height: 100%;
+    background-color:var(--thick-blue);
+    display:flex;
+    justify-content: space-between;
+}
+#logo_img
+{
+    width:50px;
+    height:50px;
+}
+nav{
+       font-family: var(--font-rubik);
+       width:500px;
+
+}
+nav a{
+
+   color:var(--snow-white);
+   font-size: 20px;
+   font-weight: 500;
+
+}
+ul
+{
+    list-style: none;
+}
+
+a
+{
+    text-decoration:none;
+}
+#logo_name
+{
+    height:100%;
+    display:flex;
+    
+}
+nav ul
+{
+    display:flex;
+    justify-content: space-around;
+    width:100%;
+    align-items:center;
+    height:100%;
+    
+}
+#logo_name
+{
+    display:flex;
+    padding-left:10px;
+    align-items: center;
+}
+nav ul li
+{
+    position: relative;
+}
+nav ul li::after
+{
+    content:"";
+    width:100%;
+    height:2.5px;;
+    background-color: var(--nav-color);
+    position:absolute;
+    bottom:0;
+    left:0;
+    transform:scaleX(0);
+        transform-origin: left;
+    transition: 0.3s;
+    
+}
+nav ul li:hover::after
+{
+    transform:scaleX(1);
+}
+nav ul li:hover a{
+    color:var(--nav-color);
+    transition:0.3s;
+}
+
+/* login style  */
+
+/* From Uiverse.io by boryanakrasteva */ 
+.admin_btn {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border: none;
+  position: relative;
+  border-radius: 10px;
+  -webkit-box-shadow: 1px 1px 5px .2px #00000035;
+  box-shadow: 1px 1px 5px .2px #00000035;
+  -webkit-transition: .2s linear;
+  transition: .2s linear;
+  transition-delay: .2s;
+
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: space-around;
+}
+.admin_btn svg
+{
+    color:var(--thick-blue);
+      transition: .2s linear;
+  transition-delay: .2s;
+}
+.admin_btn:hover {
+  width: 130px;
+  transition-delay: .2s;
+}
+
+.admin_btn:hover > .paragraph {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition-delay: .4s;
+  transition-delay: .4s;
+}
+
+.admin_btn:hover > .icon-wrapper .icon {
+  transform: scale(1.1);
+}
+
+.bnt:hover > .icon-wrapper .icon path {
+  stroke: black;
+}
+.admin_btn:hover
+{
+    background-color: var(--button-blue);
+}
+.admin_btn:hover svg
+{
+    color:var(--snow-white);
+}
+.admin_btn .paragraph {
+  color: var(--snow-white);
+  visibility: hidden;
+  opacity: 0;
+  font-size: 18px;
+  -webkit-transition: .2s linear;
+  transition: .2s linear;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-right: 30px;
+padding-top:0;
+}
+
+.icon-wrapper {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  transform: scale(.9);
+  transition: .2s linear;
+}
+
+.icon path {
+  stroke: #000;
+  stroke-width: 2px;
+  -webkit-transition: .2s linear;
+  transition: .2s linear;
+}
