@@ -19,8 +19,7 @@ footer
 }
 #sec1
 {
-  display:grid;
-  place-items: center;
+  max-width: 460px;
 }
 #sec1 h1
 {

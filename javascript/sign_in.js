@@ -1,28 +1,20 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13/firebase-app.js";
-import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/10.13/firebase-auth.js";
+import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
+import { auth } from "./authentication.js";
 
-const sign_out = document.getElementById("sign_out");
-
-const firebaseConfig = {
-  apiKey: "AIzaSyDOs8r-4Qpz5Y3FdaoNt-VyH73c9h8Ymg4",
-  authDomain: "fir-services-f3215.firebaseapp.com",
-  projectcgetElementsByClassName: "fir-services-f3215",
-  storageBucket: "fir-services-f3215.appspot.com",
-  messagingSendercgetElementsByClassName: "866162843584",
-  appcgetElementsByClassName: "1:866162843584:web:fdab74477053f83e38f225"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
-//getAuth
-const auth = getAuth(app);
-
-//sign out from admin
-sign_out.addEventListener("click", () => {
-    signOut(auth).then(() => {
-    // Sign-out successful.
-    }).catch((error) => {
-    // An error happened.
+const sign_btn = document.getElementById("sign_in");
+const credit = document.getElementsByClassName("input");
+    
+sign_btn.addEventListener("click", () => {
+  const email = credit[0].value.trim();
+  const password = credit[1].value.trim();
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+    //   const user = userCredential.user;
+        //   console.log(user);
+        location.href="./admin.php"
+    })
+    .catch((error) => {
+    //   const errorMessage = error.message;
+      alert("Username or password might be wrong\nError Message: " + error.message);
     });
 });

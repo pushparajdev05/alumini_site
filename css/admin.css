@@ -127,21 +127,41 @@
     border-radius:10px;
     overflow-x: auto;
 }
-#myTable th
+table th
 {
     font-family: var(--font-roboto);
     font-size: 20px;
 }
-#myTable th:nth-child(4)
+table th:nth-child(4)
 {
-    width: 150px;
+    width: 200px;
     text-align: left;
 }
-#myTable tr td{
+table tr td{
     text-align: left;
-        font-size: 18px;
+    font-size: 18px;
 }
-
+#table_view
+{
+  position:relative;
+  margin-top:20px;
+}
+#table1,#table2
+{
+  position:absolute;
+  width:100%;
+  padding-left:10px;
+  padding-right:10px;
+  background-color: var(--snow-white);
+}
+table
+{
+  width:100%  !important;
+ }
+#table2
+{
+  display:none;
+}
 #option_list
 {
     padding-top:65px;
@@ -150,17 +170,48 @@
     padding-right:50px;
     justify-content: flex-end;
 }
-#add_btn svg
+.option_btn svg
 {
-    fill: #ff0000 !important;
     height:25px;
     width:25px;
 }
-
+.option_btn
+{
+  margin-right:20px;
+}
+#option_btn 
+{
+  display:flex;
+  justify-content: space-around;
+}
+#option_list
+{
+  display: flex;
+  justify-content: space-between;
+}
+#table_view
+{
+  margin-left:30px;
+  margin-right:30px;
+}
 /* delete button for alumini */
 #action
 {
     display:flex;
+    width:150px;
+}
+td:last-child
+{
+  display: flex;
+  justify-content: center;
+}
+td,th
+{
+  text-align:left !important;
+}
+th:last-child
+{
+  text-align: center !important;
 }
 #del svg
 {

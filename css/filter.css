@@ -1,0 +1,29 @@
+#pane
+{
+  display:flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left:10px;
+}
+#pane .selection
+{
+  padding-left:10px;
+  padding-right:10px;
+}
+.font_style
+{
+  font-size: 20px;
+  font-family: var(--font-roboto);
+}
+.selection select
+{
+  outline:none;
+  width:150px;
+  height:30px;
+  border-radius:10px;
+  padding-left:5px;
+  font-size:16px;
+  font-family:var(--font-roboto);
+  background-color: var(--ghost-white);
+
+}

@@ -7,13 +7,6 @@
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/login.css">
     <link rel="stylesheet" href="./css/index.css">
-    <script type="text/javascript">
-        function preventBack() {
-            window.history.forward();
-        }
-        setTimeout("preventBack()", 0);
-        window.onunload = function () { null };
-    </script>
     <title>Dashboard</title>
 </head>
 <body>
@@ -137,6 +130,7 @@
     <script src="./javascript/general.js"></script>
 
     <script type="module" src="./javascript/authentication.js"></script>
+    <script type="module" src="./javascript/sign_in.js"></script>
     <script>
         const explore = document.getElementById("explore");
         explore.addEventListener("click",()=>

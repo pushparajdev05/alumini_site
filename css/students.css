@@ -2,9 +2,7 @@
 #myTable_wrapper
 {
     font-family: var(--font-rubik);
-    width:95%;
-    margin:auto;
-    margin-top:70px;
+    width:100%;
     background-color: var(--snow-white);
     padding:20px 10px;
     border-radius:10px;
@@ -23,4 +21,27 @@
 #myTable tr td{
     text-align: left;
         font-size: 18px;
+}
+#table_section
+{
+    margin-top:70px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+#filter_pane
+{
+    margin-bottom: 20px;
+}
+#myTable td:last-child
+{
+  display: flex;
+  justify-content: center;
+}
+td,th
+{
+  text-align:left !important;
+}
+th:last-child
+{
+  text-align: center !important;
 }

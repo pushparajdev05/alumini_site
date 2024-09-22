@@ -21,7 +21,7 @@ input[type="number"]::-webkit-inner-spin-button {
 input[type="number"] {
     -moz-appearance: textfield;
 }
-form input
+form input, form select
 {
     height:40px;
     width:550px;
@@ -34,7 +34,22 @@ form input
     font-size:18px;
     padding-left:10px;
 }
-form input:focus
+textarea
+{
+        width:550px;
+      display: block;
+          margin-top: 3px;
+    border-radius:10px;
+    outline: none;
+    border:none;
+    border: 1px solid rgb(23, 23, 23);
+    font-size:18px;
+    padding-left:10px;
+    height:200px;
+    padding-top: 5px;
+        font-size:18px;
+}
+form input:focus, textarea:focus ,form select:focus
 {
     box-shadow:0px 0px 5px rgb(202, 248, 255),
     0px 0px 25px antiquewhite,
@@ -50,11 +65,11 @@ input::placeholder
     padding-bottom: 10px;
     padding-top: 5px;
 }
-#form2
+.form2
 {
     padding:20px;
-    width:100%;
-    min-width: 500px;
+    width:50%;
+    min-width: 570px;
     display: flex;
     flex-direction: column;
     justify-content:center;
@@ -68,15 +83,15 @@ input::placeholder
 {
     display:none;
     z-index:5;
-    position:fixed;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    width:50%;
-        min-width: 500px;
-}
+    width:100%;
+    justify-content: center;
+    align-items: center;
+    position:absolute;
+    top:70px;
+    /* background-color: transparent   ; */
 
-#close
+}
+.close
 {
   position:absolute;
   top:10px;
@@ -87,19 +102,19 @@ input::placeholder
   z-index: 1;
 
 }
-#close:hover svg
+.close:hover svg
 {
 
   color:var(--snow-white);
 }
-#close:hover
+.close:hover
 {
       background-color: var(--thick-blue);
 }
 
 /* Save button for alumini form */
 
- form #save {
+ form .save_btn {
   position: relative;
   display: inline-block;
   padding: 10px 20px;
@@ -119,18 +134,18 @@ input::placeholder
     font-family: var(--font-rubik);
 }
 
- #save:hover {
+ .save_btn:hover {
   background: #ff0000;
   color: #ffffff;
   border-radius: 5px;
 }
 
- #save span {
+ .save_btn span {
   position: absolute;
   display: block;
 }
 
- #save span:nth-child(1) {
+ .save_btn span:nth-child(1) {
   top: 0;
   left: -100%;
   width: 100%;
@@ -149,7 +164,7 @@ input::placeholder
   }
 }
 
- #save span:nth-child(2) {
+ .save_btn span:nth-child(2) {
   top: -100%;
   right: 0;
   width: 3px;
@@ -169,7 +184,7 @@ input::placeholder
   }
 }
 
- #save span:nth-child(3) {
+ .save_btn span:nth-child(3) {
   bottom: 0;
   right: -100%;
   width: 100%;
@@ -189,7 +204,7 @@ input::placeholder
   }
 }
 
- #save span:nth-child(4) {
+ .save_btn span:nth-child(4) {
   bottom: -100%;
   left: 0;
   width: 3px;
