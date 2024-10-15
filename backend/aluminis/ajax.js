@@ -3,7 +3,13 @@ $(document).ready(() => {
     	//Insert and update using jQuery ajax
 			$("#form_data1").submit(function(e){
 				e.preventDefault();
-				var sno=$("#sno").val();
+				var sno = $("#sno").val();
+				const formdata = new FormData(this);
+				// console.log(this);
+				// formdata.append("name", "pushpara P");
+				// for (let pair of formdata.entries()) {
+				// 	console.log(pair[0] + ': ' + pair[1]);
+				// }
 				
 				//Check All Fields are filled
 				// var required=true;
@@ -15,25 +21,43 @@ $(document).ready(() => {
 				// 		return false;
 				// 	}
 				// });
-					$.ajax({
-						type:'POST',
-						url:'backend/aluminis/action.php',
-						data:$("#form_data1").serialize(),
-						beforeSend:function(){
-							$("#save1").text("Wait...");
-						},
-						success:function(res){
+				$.ajax({
+					type: 'POST',
+					url: 'backend/aluminis/action.php',
+					data: formdata,
+					contentType: false,
+					processData: false,
+					beforeSend: function () {
+						$("#save1").text("Wait...");
+					},
+					success: function (res) {
 						
-							if(sno=="0"){
+						if (sno == "0") {
+							if (!(res === "invalid")) {
+
 								$("#myTable1").find("tbody").append(res);
-							}else{
+							}
+							else
+							{
+								alert("form data is not inserted in database there is a problem");
+							}
+							console.log(res);
+						} else {
+							if (!(res === "invalid")) {
+
 								$("#myTable1").find("."+sno).html(res);
 							}
-							
-							document.getElementById("form_data1").reset();
-							$("#save1").text("Save");
+							else
+							{
+								alert("form data is not inserted in database there is a problem");
+							}
+							console.log(res);
 						}
-					});
+							
+						document.getElementById("form_data1").reset();
+						$("#save1").text("Save");
+					}
+				});
 				
             });
             
@@ -50,7 +74,8 @@ $(document).ready(() => {
 							$(btn).text("Deleting...");
 						},
 						success:function(res){
-							if(res){
+							if (res) {
+								console.log(res);
 								btn.closest("tr").remove();
 							}
 						}

@@ -1,8 +1,8 @@
 
     <?php
-        include './backend/config.php';
+        include '../config.php';
         $rollno=mysqli_real_escape_string($con,$_POST['rollno']);
-        $sql='select * from contributions';
+        $sql="select * from contributions where rollno='{$rollno}'";
         $res=$con->query($sql);
         $roll = "";
         $name = "";

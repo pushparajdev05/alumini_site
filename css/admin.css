@@ -11,11 +11,11 @@
   --tooltip-color: #fff;
   width: var(--width);
   height: var(--height);
-  background: rgb(5, 166, 85);
+  background:var(--primary-red);
   position: relative;
   text-align: center;
   border-radius: 0.45em;
-  font-family: "Arial";
+  font-family: var(--secondary-font);
   transition:  0.3s;
 }
 
@@ -24,7 +24,7 @@
   content: attr(data-tooltip);
   width: var(--tooltip-width);
   height: var(--tooltip-height);
-  background-color: #555;
+  background-color: var(--primary-green);
   font-size: 0.9rem;
   color: #fff;
   border-radius: .25em;
@@ -39,7 +39,7 @@
   width: 0;
   height: 0;
   border: 10px solid transparent;
-  border-top-color: #555;
+  border-top-color: var(--primary-green);
   left: calc(50% - 10px);
   bottom: calc(100% + var(--gap-between-tooltip-to-button) - 10px);
 }
@@ -67,7 +67,7 @@
 
 .text {
   top: 0;
-  font-family: var(--font-rubik);
+  font-family: var(--primary-font);
   font-size:18px;
 }
 
@@ -76,7 +76,7 @@
 }
 
 .icon {
-  color: #fff;
+  color: var(--white);
   top: 100%;
   display: flex;
   align-items: center;
@@ -87,9 +87,17 @@
   width: 24px;
   height: 24px;
 }
+.icon svg path{
+  stroke:white !important;
+
+}
+#add_btn path
+{
+  stroke-width: 1px;
+}
 
 .button:hover {
-  background: #4dc7ff;
+  background: var(--primary-green);
 }
 
 .button:hover .text {
@@ -115,21 +123,30 @@
 
 
 /* alumini table for admin */
-
-#myTable_wrapper
+html
 {
-    font-family: var(--font-rubik);
-    width:95%;
+  background-color: var(--off-white);
+}
+body
+{
+    background-color: var(--off-white);
+}
+#myTable1_wrapper,#myTable2_wrapper
+{
+  font-family: var(--secondary-font) ;
     margin:auto;
-    margin-top:25px;
-    background-color: var(--snow-white);
     padding:20px 10px;
     border-radius:10px;
     overflow-x: auto;
+    background-color: var(--white);
+}
+button span
+{
+  font-family:var(--primary-font);
 }
 table th
 {
-    font-family: var(--font-roboto);
+    font-family: var(--primary-font);
     font-size: 20px;
 }
 table th:nth-child(4)
@@ -162,13 +179,55 @@ table
 {
   display:none;
 }
-#option_list
+/* #option_list
 {
-    padding-top:65px;
-    display: flex;
-    padding-left:40px;
+
+} */
+ #option_list .panel
+ {
+      padding-left:40px;
     padding-right:50px;
-    justify-content: flex-end;
+ }
+#option_list .panel2
+{
+    /* padding-top:65px; */
+    display: flex;
+
+      justify-content: space-between;
+}
+.panel1 input
+{
+  min-width:200px;
+  height:30px;
+  margin-right:15px;
+  padding-left:10px;
+  font-family: var(--secondary-font);
+  font-size:17px;
+  margin-bottom:10px;
+  /* padding-block: 5px; */
+  /* padding-bottom:10px; */
+}
+.admin_add_delete
+{
+  display:flex;
+  align-items:center;
+  
+}
+.admin_add_delete .option_btn
+{
+  margin-bottom: 10px;
+}
+.panel1 .cols
+{
+  display: flex;
+  flex-direction: column ;
+}
+.panel1 input::placeholder
+{
+  font-family: var(--primary-font);
+  color: var(--mid-grey);
+  font-family: 200;
+  font-size: 16px;
 }
 .option_btn svg
 {
@@ -186,8 +245,18 @@ table
 }
 #option_list
 {
+    padding-top:65px;
   display: flex;
-  justify-content: space-between;
+  flex-direction:column;
+  /* justify-content: space-between; */
+}
+#option_list .panel1
+{
+  display:flex;
+  align-items:center;
+  padding-bottom:10px;
+  justify-content:flex-end;
+  
 }
 #table_view
 {
@@ -200,11 +269,12 @@ table
     display:flex;
     width:150px;
 }
-td:last-child
+/* td:last-child
 {
   display: flex;
   justify-content: center;
-}
+  height: 100%;
+} */
 td,th
 {
   text-align:left !important;
@@ -298,5 +368,9 @@ th:last-child
 #update:hover span ,#update:hover svg
 {
     color:#fc7a00;
+}
+.panel
+{
+  width:100%;
 }
 

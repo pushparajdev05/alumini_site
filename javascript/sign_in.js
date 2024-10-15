@@ -11,7 +11,7 @@ sign_btn.addEventListener("click", () => {
     .then((userCredential) => {
     //   const user = userCredential.user;
         //   console.log(user);
-        location.href="./admin.php"
+      location.href = "./backend/authentication/admin_login.php";
     })
     .catch((error) => {
     //   const errorMessage = error.message;

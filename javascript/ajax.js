@@ -4,7 +4,7 @@ $(document).ready(() => {
         $("#pop_up").css("display", "grid");
         $.ajax({
 						type:'POST',
-						url:'contribution_data.php',
+						url:'backend/contribution/contribution_data.php',
 						data:{rollno:id},
 						// beforeSend:function(){
 						// 	$("#save2").text("Wait...");

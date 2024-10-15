@@ -6,13 +6,14 @@
     min-width: 130px;
     max-height: 600px;
     position:absolute;
-    background-color: rgb(168, 191, 255);
+    background-color: var(--primary-green);
     top:50%;    
     left:50%;    
     transform:translate(-50%,-50%);
     padding:30px;
     border-radius:10px;
     overflow-y: auto;
+    color:var(--white);
 }
 #content
 {
@@ -23,7 +24,7 @@
 .event_val
 {
     font-size:20px ;
-    font-family: var(--font-roboto);
+    font-family: var(--secondary-font);
 }
 .row
 {
@@ -46,7 +47,7 @@
 .event_head
 {
     font-size: 25px;
-    font-family: var(--font-rubik);
+    font-family: var(--primary-font);
     /* color:rgb(0, 255, 208); */
     text-decoration:underline;
     margin-top:10px;
@@ -57,19 +58,20 @@
 }
 .view:hover
 {
-    background-color: rgb(168, 191, 255);
+    background-color: var(--primary-green);
 }
 .view
 {
-    background-color: var(--highlight-blue);
+    background-color:var(--primary-red);
     font-size:20px;
     font-weight:600;
-    font-family:var(--font-roboto)
+    font-family:var(--primary-font);
+    color:var(--white);
 }
 /* #pop_table td
 {
     padding-top:10px;
-    font-family: var(--font-roboto);
+    font-family: var(--primary-font);
     font-size:20px;
     text-align:left !important;
 }

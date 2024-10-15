@@ -22,7 +22,7 @@ const sign_out = document.getElementById("sign_out");
 //sign out from admin
 sign_out.addEventListener("click", () => {
     signOut(auth).then(() => {
-      location.href = "./index.php";
+      location.href = "./backend/authentication/admin_logout.php";
     }).catch((error) => {
       alert(" it is not signed out \n there is something causes problem")
     });

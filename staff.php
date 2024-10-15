@@ -1,6 +1,14 @@
 
-    <?php
+     <?php
+    session_start();
+    if(!isset($_SESSION["staff"]))
+    {
+        $from=$_SESSION["from"];
+        header("location: ./{$from}");
+        die();
+    }
         include "./backend/config.php";
+        
     ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +21,20 @@
     <link rel="stylesheet" href="./css/filter.css">
     <link rel="stylesheet" href="./css/popup.css">
     <link rel="stylesheet" href="./css/datatable/dataTables.dataTables.css">
-    <title>Students_view</title>
+    <!-- <script type="text/javascript">
+        function preventBack() {
+            window.history.forward();
+        }
+        setTimeout("preventBack()", 0);
+        window.onunload = function () { null };
+    </script> -->
+    <script>
+        function logout()
+        {
+            location.href="./backend/authentication/staff_logout.php";
+        }
+    </script>
+    <title>Staff Page</title>
 </head>
 <body>
     <?php
@@ -109,6 +130,7 @@
     <script src="./javascript/datatable/jquery-3.7.1.js"></script>
     <script src="./javascript/datatable/datatable.js"></script>
         <script src="./javascript/ajax.js"></script>
+        <!-- <script src="./javascript/sign_out.js"></script> -->
 
     <script>
         let table = new DataTable('#myTable');

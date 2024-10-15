@@ -1,6 +1,8 @@
 <?php
 include "../config.php";
-	$action=mysqli_real_escape_string($con,$_POST["sno"]);
+	if($_SERVER["REQUEST_METHOD"]=='POST')
+    {
+        $action=mysqli_real_escape_string($con,$_POST["sno"]);
 	$rollno=mysqli_real_escape_string($con,$_POST["rollno"]);
 	$name=mysqli_real_escape_string($con,$_POST["studname"]);
 	$batch=mysqli_real_escape_string($con,$_POST["batch"]);
@@ -10,13 +12,88 @@ include "../config.php";
 	$cmp_details=mysqli_real_escape_string($con,$_POST["cmpDetails"]);
 	$desig=mysqli_real_escape_string($con,$_POST["desig"]);
 	$email=mysqli_real_escape_string($con,$_POST["email"]);
-	if($action=="0"){
-		$sql="insert into aluminis (rollno,studname,batch,empstatus,cur_cmp_name,cur_cmp_details,design,phno,email) values ('{$rollno}','{$name}','{$batch}','{$empstatus}','{$cmp_name}','{$cmp_details}','{$desig}','{$phno}','{$email}')";
+    //getting the image of aluminis function
+function getImagepath($rollno,$operation)
+{
+    if (isset($_FILES["upload"])) {
+        $target_dir = "aluminis_img/";
+            $table_dir = "backend/aluminis/aluminis_img/";
+        $target_file = basename($_FILES["upload"]["name"]);
+        $uploadOk = 1;
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-		if($con->query($sql))
-        {
-			$sno=$con->insert_id;
-			echo"<tr class='{$sno}'>
+        // Check if image file is a actual image or fake image
+
+        $check = getimagesize($_FILES["upload"]["tmp_name"]);
+        if ($check == false) {
+            $uploadOk = 0;
+            return false;
+        }
+
+        // Check if file already exists
+       
+
+        // Check file size
+        if ($_FILES["upload"]["size"] > 6291456) {
+            // echo "Sorry, your file is too large. try to upload image with 5MB";
+            $uploadOk = 0;
+            return false;
+        }
+
+        // Allow certain file formats
+        if (
+            $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+            && $imageFileType != "gif"
+         ) {
+            // echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+            $uploadOk = 0;
+            return false;
+        }
+        //TODO: img path for project and table of database
+
+        $img_current_path = $target_dir . $rollno .".". $imageFileType;
+            $table_img_path = $table_dir . $rollno . "." . $imageFileType;
+
+            if($operation==true)
+            {
+                if (file_exists($img_current_path)) {
+                    // echo "Sorry, file already exists.";
+                    $uploadOk = 0;
+                    return false;
+                }
+            }
+            else
+            {
+                if (file_exists($img_current_path)) {
+                    unlink($img_current_path);
+                    // echo "Sorry, file already exists.";
+                }
+            }
+
+        // Check if $uploadOk is set to 0 by an error
+        if ($uploadOk == 0) {
+            echo false;
+            // echo "this something went wrong ";
+            // if everything is ok, try to upload file
+        } else {
+            if (move_uploaded_file($_FILES["upload"]["tmp_name"], $img_current_path)) {
+                return $table_img_path;
+            } else {
+                    return false;
+                // echo "sorry there is a problem to move file to server folder";
+            }
+        }
+    }
+}
+    // $image_path = getImagepath($rollno);
+if ($action == "0") {
+    $image_path = getImagepath($rollno,true);
+    if (!(false == $image_path)) {
+        $sql = "insert into aluminis (rollno,studname,batch,empstatus,cur_cmp_name,cur_cmp_details,design,phno,email,img_path) values ('{$rollno}','{$name}','{$batch}','{$empstatus}','{$cmp_name}','{$cmp_details}','{$desig}','{$phno}','{$email}','{$image_path}')";
+
+        if ($con->query($sql)) {
+            $sno = $con->insert_id;
+            echo "<tr class='{$sno}'>
                             <td>{$rollno}</td>
                             <td>{$name}</td>
                             <td>{$batch}</td>
@@ -38,16 +115,18 @@ include "../config.php";
                                  </div>
                             </td>					
                         </tr>";
-			
-		}
-	}
-    else
-    {
-		$sql="update aluminis set rollno='{$rollno}',studname='{$name}',batch='{$batch}',empstatus='{$empstatus}',phno='{$phno}',design='{$desig}',email='{$email}',cur_cmp_name='{$cmp_name}',cur_cmp_details='{$cmp_details}' where sno='{$action}'";
 
-		if($con->query($sql))
-        {
-			echo"
+        }
+    } else {
+        echo "invalid";
+    }
+} else {
+    $image_path = getImagepath($rollno,false);
+    if (!(false == $image_path)) {
+        $sql = "update aluminis set rollno='{$rollno}',studname='{$name}',batch='{$batch}',empstatus='{$empstatus}',phno='{$phno}',design='{$desig}',email='{$email}',cur_cmp_name='{$cmp_name}',cur_cmp_details='{$cmp_details}',img_path='{$image_path}' where sno='{$action}'";
+
+        if ($con->query($sql)) {
+            echo "
                     <td>{$rollno}</td>
                             <td>{$name}</td>
                             <td>{$batch}</td>
@@ -68,6 +147,8 @@ include "../config.php";
                                 </div>
                                  </div>
                             </td>";
-		}
-	}
+        }
+    }
+}
+    }
 ?>

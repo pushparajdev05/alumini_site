@@ -42,6 +42,7 @@ filter2.addEventListener("change", () => {
     const changeEvent = new Event("keyup");
     let selected_value = filter2.options[filter2.selectedIndex].value;
     const searchs = document.getElementsByClassName("dt-input");
+    console.log(searchs)
         searchs[1].value = selected_value;
         searchs[1].dispatchEvent(changeEvent);
 });

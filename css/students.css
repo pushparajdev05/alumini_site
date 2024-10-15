@@ -1,16 +1,23 @@
-
+html
+{
+  background-color: var(--off-white);
+}
+body
+{
+    background-color: var(--off-white);
+}
 #myTable_wrapper
 {
-    font-family: var(--font-rubik);
+    font-family: var(--secondary-font) !important;
     width:100%;
-    background-color: var(--snow-white);
     padding:20px 10px;
     border-radius:10px;
     overflow-x: auto;
+    background-color: var(--white);
 }
 #myTable th
 {
-    font-family: var(--font-roboto);
+    font-family: var(--primary-font);
     font-size: 20px;
 }
 #myTable th:nth-child(4)
@@ -18,7 +25,7 @@
     width: 150px;
     text-align: left;
 }
-#myTable tr td{
+#myTable tr td:not(:last-child){
     text-align: left;
         font-size: 18px;
 }
@@ -32,11 +39,11 @@
 {
     margin-bottom: 20px;
 }
-#myTable td:last-child
+/* #myTable td:last-child
 {
   display: flex;
   justify-content: center;
-}
+} */
 td,th
 {
   text-align:left !important;
@@ -44,4 +51,8 @@ td,th
 th:last-child
 {
   text-align: center !important;
+}
+#myTable td:last-child
+{
+  text-align:center !important;
 }

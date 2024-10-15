@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap'); */
 
 *
 {
@@ -7,63 +7,78 @@
     padding:0;
     box-sizing: border-box;
 }
+@font-face {
+  font-family: "open_sans";
+  src: url("./fonts/open_sans_bold.ttf") ;
+}
+@font-face {
+  font-family: "source_sans";
+  src: url("./fonts/source_sans.otf") ;
+}
+@font-face {
+  font-family: "source_serif";
+  src: url("./fonts/source_serif.otf") ;
+}
+
 
 
 
 :root{
-    --mediam-blue:#1d3bb0;
-    --thick-blue:#1e378a;
-    --highlight-blue:#1c48d9;
-    --button-blue:#3166ed;
-    --snow-white:#fafdff;
+    --primary-red:#8b1414;
+    --primary-green:#00483d;
+    --mid-green:#007563;
+    --mid-red:#DB3A3A;
+    --white:white;
+    --mid-grey:#969696;
+    --dark-grey:#404040;
+    --light-grey: #ececec;
     --off-white:#faf9f6;
     --ghost-white:#f0f8ff;
-    --font-roboto:"Roboto Slab", serif;
-    --font-rubik:"Rubik", sans-serif; 
-    --nav-color:rgb(0, 208, 255);
+    --primary-font:"open_sans","source_sans";
+    --secondary-font:"source_serif"; 
 }
-
+html
+{
+  min-height:100%;
+}
 body
 {
 
-    background-color:var(--off-white);
+    background-color:var(--white);
+    font-family:var(--primary-font);
+    height:100%;
  
 }
 header
 {
     height: 60px;
-    font-family: var(--font-rubik);
+    font-family: var(--primary-font);
     z-index:10;
     position:sticky;
     top:0;
 }
-header h4{
-    color:var(--snow-white);
-      font-family: var(--font-roboto);
-    margin-left:10px;
-}
 #logo
 {
     height: 100%;
-    background-color:var(--thick-blue);
+    background-color:var(--primary-red);
     display:flex;
     justify-content: space-between;
 }
 #logo_img
 {
-    width:50px;
-    height:50px;
+    width:200px;
+    height:60px;
 }
 nav{
-       font-family: var(--font-rubik);
+       font-family: var(--primary-font);
        width:500px;
 
 }
 nav a{
 
-   color:var(--snow-white);
+   color:var(--light-grey);
    font-size: 20px;
-   font-weight: 500;
+   font-weight: 600;
 
 }
 ul
@@ -103,24 +118,26 @@ nav ul li
 nav ul li::after
 {
     content:"";
+    height:2px;
     width:100%;
-    height:2.5px;;
-    background-color: var(--nav-color);
+    background-color: var(--white);
     position:absolute;
     bottom:0;
     left:0;
     transform:scaleX(0);
-        transform-origin: left;
+    transform-origin: right;
     transition: 0.3s;
-    
 }
 nav ul li:hover::after
 {
+    height:2px;
     transform:scaleX(1);
+        /* transform-origin: left; */
 }
 nav ul li:hover a{
-    color:var(--nav-color);
     transition:0.3s;
+    color:var(--white);
+    
 }
 
 /* login style  */
@@ -151,7 +168,7 @@ nav ul li:hover a{
 }
 .admin_btn svg
 {
-    color:var(--thick-blue);
+    color:var(--primary-red);
       transition: .2s linear;
   transition-delay: .2s;
 }
@@ -171,19 +188,19 @@ nav ul li:hover a{
   transform: scale(1.1);
 }
 
-.bnt:hover > .icon-wrapper .icon path {
-  stroke: black;
-}
+/* .bnt:hover > .icon-wrapper .icon path {
+  /* stroke:var(--primary-red); 
+}*/
 .admin_btn:hover
 {
-    background-color: var(--button-blue);
+    background-color: var(--white);
 }
 .admin_btn:hover svg
 {
-    color:var(--snow-white);
+    color:var(--primary-red);
 }
 .admin_btn .paragraph {
-  color: var(--snow-white);
+  color: var(--primary-red);
   visibility: hidden;
   opacity: 0;
   font-size: 18px;
@@ -191,8 +208,8 @@ nav ul li:hover a{
   transition: .2s linear;
   font-weight: bold;
   text-transform: uppercase;
-  margin-right: 30px;
-padding-top:0;
+  margin-right: 35px;
+padding-top:5px;
 }
 
 .icon-wrapper {
@@ -212,7 +229,7 @@ padding-top:0;
 }
 
 .icon path {
-  stroke: #000;
+  stroke:var(--primary-red);
   stroke-width: 2px;
   -webkit-transition: .2s linear;
   transition: .2s linear;
