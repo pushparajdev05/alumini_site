@@ -25,7 +25,7 @@
             </div>
             <div class='row'>
                 <div class='col1 col'>
-                    <h4 class='font_style'>Student Name</h4>
+                    <h4 class='font_style'>Student&nbsp;Name</h4>
                 </div>
                 <div class='col2 col'>
                     <p class='event_val'>$name</p>
@@ -55,7 +55,7 @@
             </div>
             <div class='row'>
                 <div class='col1 col'>
-                    <h4 class='font_style'>Event Description</h4>
+                    <h4 class='font_style'>Event&nbsp;Description</h4>
                 </div>
                 <div class='col2 col'>
                     <p class='event_val'>{$row["event_desc"]}</p>

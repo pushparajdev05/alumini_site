@@ -15,9 +15,12 @@
     <link rel='stylesheet' href='./css/login.css'>
     <link rel='stylesheet' href='./css/filter.css'>
     <link rel='stylesheet' href='./css/popup.css'>
+    <link rel='stylesheet' href='./css/student_responsive.css'>
+    <link rel="stylesheet" href="./assets/packages/sweetalert2/sweetalert2.min.css">
     <!-- <link rel='stylesheet' href='./css/footer.css'> -->
     <link rel='stylesheet' href='./css/datatable/dataTables.dataTables.css'>
     <title>Students_view</title>
+    
 </head>
 <body>
     <?php
@@ -59,16 +62,16 @@
                                 </div>
                                 <div class='right'>
                                     <div class='row'>
-                                        <div class='cols'>Name</div>
-                                        <div class='cols'>: {$row["studname"]}</div>
+                                        <div class='cols'>Name<span>:</span></div>
+                                        <div class='cols'> {$row["studname"]}</div>
                                     </div>
                                     <div class='row'>
-                                        <div class='cols'>Roll No</div>
-                                        <div class='cols'>: {$row["rollno"]}</div>
+                                        <div class='cols'>Roll No<span>:</span></div>
+                                        <div class='cols'> {$row["rollno"]}</div>
                                     </div>
                                     <div class='row'>
-                                        <div class='cols'>Batch</div>
-                                        <div class='cols'>: {$row["batch"]}</div>
+                                        <div class='cols'>Batch<span>:</span></div>
+                                        <div class='cols'>{$row["batch"]}</div>
                                     </div>
                                 </div>
                             </div>
@@ -202,14 +205,15 @@
     <script src='./javascript/datatable/jquery-3.7.1.js'></script>
     <script src='./javascript/datatable/datatable.js'></script>
     <script src='./javascript/general.js'></script>
-    <script type='module' src='./javascript/authentication.js'></script>
     <script type='module' src='./javascript/sign_in.js'></script>
     <script type='module' src='./javascript/contribution.js'></script>
     <script type='module' src='./javascript/filter_pane.js'></script>
     <script type='module' src='./javascript/login_signup.js'></script>
-
+    <script type='module' src='./javascript/navbar.js'></script>
+    <script src="./assets/packages/sweetalert2/sweetalert2.all.min.js"></script>
+  
     <script>
         let table = new DataTable('#myTable');
-    </script>
-</body>
+    </script>   
+    </body>
 </html>

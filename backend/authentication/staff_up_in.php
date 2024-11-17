@@ -64,7 +64,7 @@ require 'PHPMailer/src/SMTP.php';
                 $mail->Body    = $message;
 
                 $mail->send();
-                echo 'Message has been sent';
+                echo 1;
             } catch (Exception $e) {
                 $sql3 = "delete from temp_staff where token='{$token}'";
                 if ($con->query($sql3)) {

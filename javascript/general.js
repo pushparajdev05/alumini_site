@@ -1,7 +1,8 @@
 const login_form = document.getElementById("login_form");
 const close_btn = document.getElementsByClassName("close");
 const admin_btn = document.getElementsByClassName("admin_btn");
-console.log(close_btn)
+
+console.log(close_btn);
 admin_btn[0].addEventListener("click", () => {
     login_form.style.display = "flex";
     document.body.style.overflowY = "hidden";

@@ -1,4 +1,5 @@
     <div id="alumini_form" class="form_field">
+        <div class="scroll">
         <form action="" class="form2" id="form_data1" enctype="multipart/form-data">
             <div class="close_btn close">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM12 10.5858L14.8284 7.75736L16.2426 9.17157L13.4142 12L16.2426 14.8284L14.8284 16.2426L12 13.4142L9.17157 16.2426L7.75736 14.8284L10.5858 12L7.75736 9.17157L9.17157 7.75736L12 10.5858Z"></path></svg>
@@ -6,20 +7,43 @@
                     <h1>Alumini Detials</h1>
             <div class="input">
                 <label for="rollno">Roll NO</label> <br>
-                <input type="text" name="rollno" id="rollno" class="data" placeholder="Enter RollNo">
+                <input type="text" name="rollno" id="rollno" class="data" placeholder="Enter RollNo" pattern="[a-zA-Z0-9]+" title="Only letters and numbers are allowed" required>
             </div>
             <div class="input">
                 <label for="studname">Student Name</label> <br>
-                <input type="text" name="studname" id="studname" class="data" placeholder="Enter Student Name">
+                <input type="text" name="studname" id="studname" class="data" placeholder="Enter Student Name" required>
             </div>
             <div class="input">
                 <label for="batch">Batch</label> <br>
-                <input type="text" name="batch" id="batch" class="data" placeholder="Enter Batch">
+                <select name="batch" id="batch" class="data" required>
+                    <option value="">--Select--</option>
+                    <option value="2002-2005">2002-2005</option>
+                    <option value="2003-2006">2003-2006</option>
+                    <option value="2004-2007">2004-2007</option>
+                    <option value="2005-2008">2005-2008</option>
+                    <option value="2006-2009">2006-2009</option>
+                    <option value="2007-2010">2007-2010</option>
+                    <option value="2008-2011">2008-2011</option>
+                    <option value="2009-2012">2009-2012</option>
+                    <option value="2010-2013">2010-2013</option>
+                    <option value="2011-2014">2011-2014</option>
+                    <option value="2012-2015">2012-2015</option>
+                    <option value="2013-2016">2013-2016</option>
+                    <option value="2014-2017">2014-2017</option>
+                    <option value="2015-2018">2015-2018</option>
+                    <option value="2016-2019">2016-2019</option>
+                    <option value="2017-2020">2017-2020</option>
+                    <option value="2019-2021">2019-2021</option>
+                    <option value="2020-2022">2020-2022</option>
+                    <option value="2021-2023">2021-2023</option>
+                    <option value="2022-2024">2022-2024</option>
+                </select>
+                <!-- <input type="text" name="batch" id="batch" class="data" placeholder="Enter Batch" required> -->
             </div>
             <div class="input">
                 <label for="status">Employee Status</label> <br>
-                <select name="status" id="status">
-                    <option value="none">--Select--</option>
+                <select name="status" id="status" required>
+                    <option value="">--Select--</option>
                     <option value="Employed">Employed</option>
                     <option value="Self Employed">Self Employed</option>
                     <option value="Self Employed-Technology">Self Employed-Technology</option>
@@ -28,23 +52,23 @@
             </div>
             <div class="input">
                 <label for="cmpname">Company Name</label> <br>
-                <input type="text" name="cmpname" id="cmpname" class="data" placeholder="Enter Company Name">
+                <input type="text" name="cmpname" id="cmpname" value="" class="data" placeholder="Enter Company Name">
             </div>
             <div class="input">
                 <label for="cmpDetails">Company Details</label> <br>
-                <input type="text" name="cmpDetails" id="cmpDetails" class="data" placeholder="Enter Company Details">
+                <input type="text" name="cmpDetails" id="cmpDetails" value="" class="data" placeholder="Enter Company Details">
             </div>
             <div class="input">
                 <label for="desig">Designation</label> <br>
-                <input type="text" name="desig" id="desig" class="data" placeholder="Enter Designation">
+                <input type="text" name="desig" id="desig" value="" class="data" placeholder="Enter Designation">
             </div>
             <div class="input">
                 <label for="phno">Phone number</label> <br>
-                <input type="number" name="phno" id="phno" class="data" placeholder="Enter Phone no">
+                <input type="number" name="phno" id="phno" class="data" placeholder="Enter Phone no" required>
             </div>
             <div class="input">
                 <label for="email">Email-ID</label> <br>
-                <input type="email" name="email" id="email" class="data" placeholder="Enter Email ID">
+                <input type="email" name="email" id="email" class="data" placeholder="Enter Email ID" required>
             </div>
             <div class="input">
                 <label for="upload">Upload image</label> <br>
@@ -59,4 +83,5 @@
                 Save
             </button>
         </form>
+        </div>
     </div>

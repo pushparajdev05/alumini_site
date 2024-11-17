@@ -18,7 +18,7 @@ body
 #myTable th
 {
     font-family: var(--primary-font);
-    font-size: 20px;
+    font-size: 18px;
 }
 #myTable th:nth-child(4)
 {
@@ -27,7 +27,7 @@ body
 }
 #myTable tr td:not(:last-child){
     text-align: left;
-        font-size: 18px;
+        font-size: 17px;
 }
 #table_section
 {
@@ -55,4 +55,40 @@ th:last-child
 #myTable td:last-child
 {
   text-align:center !important;
+}
+@media screen and (max-width:480px)
+{
+   #pane
+ {
+    flex-direction:column;
+ }
+ #pane .selection
+ {
+    margin-top:10px;    
+ }
+ 
+#table_section
+{
+     margin-top:20px;
+}
+}
+@media screen and (max-width:1000px)
+{
+ thead th span
+ {
+  font-size:clamp(15px,2vw,18px);
+ }
+ tbody tr td:not(:last-child)
+ {
+  font-size:clamp(14px,2vw,17px) !important;
+  
+ }
+}
+@media screen and (max-width:1200px)
+{
+#table_section
+ {
+ 
+    padding-inline:10px;
+ }
 }

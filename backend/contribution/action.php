@@ -1,15 +1,19 @@
 <?php
 include "../config.php";
 	$action=mysqli_real_escape_string($con,$_POST["sno2"]);
-	$rollno=mysqli_real_escape_string($con,$_POST["rollno"]);
-	$name=mysqli_real_escape_string($con,$_POST["studname"]);
-	$event_date=mysqli_real_escape_string($con,$_POST["date"]);
-	$event_title=mysqli_real_escape_string($con,$_POST["title"]);
-	$event_desc=mysqli_real_escape_string($con,$_POST["desc"]);
+	$rollno=strtolower(trim($_POST["rollno"]));
+	$name=trim($_POST["studname"]);
+	$event_date=trim($_POST["date"]);
+	$event_title=trim($_POST["title"]);
+	$event_desc=trim($_POST["desc"]);
 	if($action=="0"){
-		$sql="insert into contributions (rollno,name,event_date,event_title,event_desc) values ('{$rollno}','{$name}','{$event_date}','{$event_title}','{$event_desc}')";
+		// $sql="insert into contributions (rollno,name,event_date,event_title,event_desc) values ('{$rollno}','{$name}','{$event_date}','{$event_title}','{$event_desc}')";
 
-		if($con->query($sql))
+    $stmt = $con->prepare("insert into contributions (rollno,name,event_date,event_title,event_desc) values (?,?,?,?,?)");
+
+    $stmt->bind_param("sssss", $rollno, $name, $event_date,$event_title,$event_desc);
+
+		if($stmt->execute())
         {
 			$sno=$con->insert_id;
 			echo"<tr class='{$sno}'>
@@ -32,12 +36,18 @@ include "../config.php";
                         </tr>";
 			
 		}
+        else{
+        echo 1;
+        }
 	}
     else
     {
-		$sql="update contributions set rollno='{$rollno}',name='{$name}',event_date='{$event_date}',event_title='{$event_title}',event_desc='{$event_desc}' where sno='{$action}'";
+		// $sql="update contributions set rollno='{$rollno}',name='{$name}',event_date='{$event_date}',event_title='{$event_title}',event_desc='{$event_desc}' where sno='{$action}'";
 
-		if($con->query($sql))
+    $stmt = $con->prepare("update contributions set rollno=?,name=?,event_date=?,event_title=?,event_desc=? where sno=?");
+
+    $stmt->bind_param("ssssss", $rollno, $name, $event_date, $event_title, $event_desc,$action);
+		if($stmt->execute())
         {
 			echo "<td>{$rollno}</td>
                             <td>{$name}</td>
@@ -56,5 +66,8 @@ include "../config.php";
                                  </div>
                             </td>";
 		}
+         else{
+        echo 1;
+        }
 	}
 ?>

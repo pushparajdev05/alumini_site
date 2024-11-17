@@ -6,18 +6,30 @@ $sql1 = "select img_path from aluminis where sno='{$action}'";
 $res=$con->query($sql1);
 if ($res->num_rows > 0) {
 	$row = $res->fetch_assoc();
-	$target_img = "aluminis_img/". basename($row["img_path"]);
-
-	if (file_exists($target_img)) {
-		if (unlink($target_img)) {
-			if ($con->query($sql)) {
-				echo "1";
+	$file_name=basename($row["img_path"]);
+	if(!($file_name=="no_image.jpg"))
+	{
+		$target_img = "aluminis_img/" . $file_name;
+		if (file_exists($target_img)) {
+			if (unlink($target_img)) {
+				if ($con->query($sql)) {
+					echo 1;
+				} else {
+					echo "Something went wrong while deleting , the error is :" . $con->error;
+				}
 			} else {
-				echo "0";
+				echo "image has not deleted from server " . $target_img;
 			}
 		}
-	} else {
-		echo "image has not deleted from server " . $target_img;
+	}
+	else
+	{
+		if ($con->query($sql)) {
+					echo 1;
+		} else {
+			echo "Something went wrong while deleting , the error is :" . $con->error;
+		}
+
 	}
 }
 ?>

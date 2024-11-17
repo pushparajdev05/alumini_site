@@ -24,11 +24,11 @@ if (isset($_GET["token"])) {
         
      }
      else{
-        echo "failed email verification";
+        echo "the staff has already verified by administrator";
      }
  
 }
 else{
-    echo "failed email verification";
+    echo "email verification has failed";
 }
 ?>

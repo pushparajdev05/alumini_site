@@ -1,6 +1,16 @@
 
 /* add button for alumini */
-
+html
+{
+  height:100%;
+  overflow-y:hidden;
+}
+body#body
+{
+  height:100% !important;
+  overflow-y:auto; 
+  padding-right:0 !important;
+}
 .button {
   --width: 100px;
   --height: 35px;
@@ -147,7 +157,7 @@ button span
 table th
 {
     font-family: var(--primary-font);
-    font-size: 20px;
+    font-size: 18px;
 }
 table th:nth-child(4)
 {
@@ -156,7 +166,7 @@ table th:nth-child(4)
 }
 table tr td{
     text-align: left;
-    font-size: 18px;
+    font-size: 17px;
 }
 #table_view
 {
@@ -194,12 +204,14 @@ table
     display: flex;
 
       justify-content: space-between;
+      align-items:center;
+      /* border-top:2px solid black; */
 }
 .panel1 input
 {
-  min-width:200px;
+  width:100%;
+  min-width:150px;
   height:30px;
-  margin-right:15px;
   padding-left:10px;
   font-family: var(--secondary-font);
   font-size:17px;
@@ -211,16 +223,27 @@ table
 {
   display:flex;
   align-items:center;
+  /* justify-content:flex-end; */
   
 }
 .admin_add_delete .option_btn
 {
   margin-bottom: 10px;
 }
+.padding-bottom
+{
+  padding-bottom:20px;
+  padding-top:10px;
+}
+.padding-top
+{
+  padding-top:30px; 
+}
 .panel1 .cols
 {
   display: flex;
   flex-direction: column ;
+  padding-left:10px;
 }
 .panel1 input::placeholder
 {
@@ -229,15 +252,37 @@ table
   font-family: 200;
   font-size: 16px;
 }
+.file_images
+{
+  display:flex;
+  align-items: center;
+}
+.file_images label
+{
+  margin-bottom:10px;
+  padding-inline:10px;
+  max-width: fit-content;
+  
+}
+.file_images .cols label:nth-child(3)
+{
+  border-top: 2px solid black;
+  padding-top:10px;
+}
+
 .option_btn svg
 {
     height:25px;
     width:25px;
 }
-.option_btn
+ /* .admin_add_delete .option_btn
 {
   margin-right:20px;
-}
+} */
+ #option_btn #switch_btn
+ {
+  margin-right:20px;
+ }
 #option_btn 
 {
   display:flex;
@@ -255,9 +300,15 @@ table
   display:flex;
   align-items:center;
   padding-bottom:10px;
-  justify-content:flex-end;
+  justify-content:space-between;
   
 }
+.input_field label
+{
+  font-family: var(--primary-font);
+  font-weight:bold;
+}
+
 #table_view
 {
   margin-left:30px;
@@ -369,8 +420,130 @@ th:last-child
 {
     color:#fc7a00;
 }
+#switch_btn path
+{
+  stroke-width: 2px;
+}
+
 .panel
 {
   width:100%;
 }
+@media screen and (max-width:1000px)
+{
+ thead th span
+ {
+  font-size:clamp(15px,2.5vw,18px);
+ }
+ tbody tr td:not(:last-child)
+ {
+  font-size:clamp(14px,2.5vw,17px) !important;
+  
+ }
+}
+@media screen and (max-width:480px)
+{
+   #pane
+ {
+    flex-direction:column;
+ }
+ #pane .selection
+ {
+    margin-top:10px;    
+ }
+ 
+}
+@media screen and (max-width:1200px)
+{
+#table_view
+ {
+ 
+    margin-inline:10px;
+ }
+ #table1,#table2
+ {
+  padding-inline:0;
+ }
+ #option_list .panel
+ {
+  padding-left:10px;
+  padding-right:10px;
+ }
+}
 
+@media screen and (max-width:801px)
+{
+#option_list .panel1
+{
+  flex-direction:column-reverse;
+}
+.text
+{
+    font-size:clamp(15px,2.5vw,18px);
+}
+.file_images label
+{
+    font-size:clamp(18px,2.5vw,20px);
+
+}
+}
+
+@media screen and (max-width:671px)
+{
+#option_list .panel2
+{
+  flex-direction:column;
+}
+#option_list .panel2 #pane
+{
+  margin-bottom:15px;
+}
+}
+
+@media screen and (max-width:441px)
+{
+  .file_images
+  {
+    flex-direction:column;
+    align-items: flex-start;
+
+  }
+  .admin_action
+  {
+    flex-direction:row !important;
+    margin-left:10px;
+
+  }
+  .padding-top
+  {
+      padding-top:0;
+      padding-left:10px;
+
+  }
+  .padding-bottom
+  {
+      padding-bottom:10px;
+      padding-top:0;
+      padding-right:10px;
+  }
+}
+
+@media screen and (max-width:441px)
+{
+.admin_add_delete
+{
+  flex-direction :column;
+}
+.admin_action.cols
+{
+  flex-direction: row;
+}
+.admin_action.cols #add_admin_btn
+{
+  margin-right:20px;
+}
+.panel1 input
+{
+  margin-right:0;
+}
+}

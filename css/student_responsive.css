@@ -1,0 +1,63 @@
+@media screen and (max-width:640px)
+{
+    .head
+    {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .accrodian .header .head .cols:first-child
+    {
+        display: flex;
+        justify-content: space-between;
+        padding-inline: 0 20px;
+    }
+    .up_down
+    {
+        top:15%;
+    }
+}
+@media screen and (max-width:480px)
+{
+ #pane
+ {
+    flex-direction:column;
+ }
+ #pane .selection
+ {
+    margin-top:10px;    
+ }
+ #table_section
+ {
+    margin-top:20px;
+    padding-inline:10px;
+ }
+ .accrodian .header .head .right .row .cols
+ {
+     font-size: max(17px,4vw) !important;
+ }
+ .col p
+ {
+     font-size: max(17px,4vw) !important;
+
+ }
+ .col h4
+ {
+     font-size: max(18px,4vw) !important;
+
+ }
+}
+@media screen and (max-width:810px)
+{
+    .pop_sec .row
+    {
+        flex-direction:column;
+    }
+    .col2
+    {
+        width:100%;
+    }
+    .col1
+    {
+        width:100%;
+    }
+}

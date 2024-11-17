@@ -3,28 +3,35 @@ include "../config.php";
 if(isset($_POST["admin_id"]))
 {
     $admin = mysqli_real_escape_string($con,$_POST["admin_id"]);
+    $pwd = mysqli_real_escape_string($con,$_POST["admin_pwd"]);
     $action = mysqli_real_escape_string($con,$_POST["id"]);
     if($action=='0')
     {
-        $sql = "insert into admins values('{$admin}')";
+        $sql = "insert into admins values('{$admin}','{$pwd}')";
         if($con->query($sql))
         {
-            echo "admin has added to firebase auth and admin database";
+            echo 1;
         }
         else{
-            echo $con->error;
+            echo "Something went wrong the error is : ". $con->error;
         }
     }
     else
     {
-        $sql = "delete from admins where='{$admin}'";
-        if($con->query($sql))
-        {
-            echo "admin has deleted from firebase auth and admin database";
+        $sql="select * from admins where id='{$admin}' and pwd='{$pwd}'";
+            $res=$con->query($sql);
+            // echo $res;
+        if ($res->num_rows > 0) {
+            $sql1 = "delete from admins where id='{$admin}' and pwd='{$pwd}'";
+            if ($con->query($sql1)) {
+                echo 1;
+            } else {
+                echo "Something went wrong the error is : ". $con->error;
+            }
+        } else {
+            echo "Enter correct Email and Password";
         }
-        else{
-            echo "false";
-        }
+       
     }
 }
 else

@@ -3,10 +3,10 @@
 	$action=$_POST["action"];
 	$sql="delete from contributions where sno='{$action}'";
 	if($con->query($sql)){
-		echo true;
+		echo 0;
 	}
 	else
 	{
-		echo false;
+		echo "Something went wrong while deleting, the error is : ".$con->error;
 	}
 ?>

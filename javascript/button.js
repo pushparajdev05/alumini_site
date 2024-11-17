@@ -21,22 +21,40 @@ switch_btn.addEventListener("click", () => {
 const close_btn = document.getElementsByClassName("close_btn");
 const add_btn = document.getElementById("add_btn");
 const form_field = document.getElementsByClassName("form_field");
-console.log(close_btn);
+const save1 = document.getElementById("save1");
+const save2 = document.getElementById("save2");
+console.log(save1.value);
 close_btn[0].addEventListener("click", () => {
     form_field[0].style.display = "none";
+     save1.innerHTML = `<span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Save`;
     form2[0].reset();
 });
 close_btn[1].addEventListener("click", () => {
     form_field[1].style.display = "none";
+     save2.innerHTML = `<span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Save`;
        form2[1].reset();
 });
 add_btn.addEventListener("click", () => {
     if (flag == 0)
     {
+        save1.innerHTML = `<span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Save`;
         form_field[0].style.display = "flex";
      }
     else
     {
+       
         form_field[1].style.display = "flex";
      }
 });
@@ -52,9 +70,26 @@ filter1.addEventListener("change", () => {
         case "batch":
             filter2.innerHTML = `
                <option value="">--Select--</option>
-                <option value="2013-2015">2013-2015</option>
-                <option value="2014-2016">2014-2016</option>
-                <option value="2015-2017">2015-2017</option>
+                          <option value="2002-2005">2002-2005</option>
+          <option value="2003-2006">2003-2006</option>
+          <option value="2004-2007">2004-2007</option>
+          <option value="2005-2008">2005-2008</option>
+          <option value="2006-2009">2006-2009</option>
+          <option value="2007-2010">2007-2010</option>
+          <option value="2008-2011">2008-2011</option>
+          <option value="2009-2012">2009-2012</option>
+          <option value="2010-2013">2010-2013</option>
+          <option value="2011-2014">2011-2014</option>
+          <option value="2012-2015">2012-2015</option>
+          <option value="2013-2016">2013-2016</option>
+          <option value="2014-2017">2014-2017</option>
+          <option value="2015-2018">2015-2018</option>
+          <option value="2016-2019">2016-2019</option>
+          <option value="2017-2020">2017-2020</option>
+          <option value="2019-2021">2019-2021</option>
+          <option value="2020-2022">2020-2022</option>
+          <option value="2021-2023">2021-2023</option>
+          <option value="2022-2024">2022-2024</option>
             `;
             break;
         case "company":
@@ -73,6 +108,15 @@ filter1.addEventListener("change", () => {
                     <option value="Seminar">Seminar</option>
                     <option value="Placement Reference">Placement Reference</option>
                     <option value="Event Jury">Event Jury</option>
+            `;
+            break;
+        case "empstatus":
+            filter2.innerHTML = `
+                    <option value="">--Select--</option>
+                    <option value="Employed">Employed</option>
+                    <option value="Self Employed">Self Employed</option>
+                    <option value="Self Employed-Technology">Self Employed-Technology</option>
+                    <option value="NA">NA</option>
             `;
             break;
 

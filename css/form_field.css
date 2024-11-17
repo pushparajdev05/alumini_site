@@ -2,6 +2,7 @@ label
 {
     font-family: var(--secondary-font);
     font-size: 20px;
+        /* font-weight: bold; */
     
 }
 h1
@@ -9,6 +10,7 @@ h1
     font-family: var(--primary-font);
     font-weight:400;
     margin-bottom:10px;
+    font-size:clamp(22px,4vw,30px)
 }
 
 /* For Chrome, Safari, Edge, and Opera */
@@ -24,19 +26,20 @@ input[type="number"] {
 form input, form select
 {
     height:40px;
-    width:550px;
+    width:100%;
     display: block;
     margin-top: 3px;
     border-radius:10px;
     outline: none;
     border:none;
     border: 1px solid rgb(23, 23, 23);
-    font-size:18px;
+    font-size:clamp(14px,2.5vw,18px);
     padding-left:10px;
 }
 textarea
 {
-        width:550px;
+        width:100%;
+        min-width:150px;
       display: block;
           margin-top: 3px;
     border-radius:10px;
@@ -47,7 +50,8 @@ textarea
     padding-left:10px;
     height:200px;
     padding-top: 5px;
-        font-size:18px;
+    font-size:clamp(14px,2.5vw,18px);
+       
 }
 /* form input:focus, textarea:focus ,form select:focus
 {
@@ -57,13 +61,18 @@ textarea
 } */
 input::placeholder
 {
-    font-size:16px;
+    font-size:15px;
     color:#252525;
 }
 .input
 {
     padding-bottom: 10px;
     padding-top: 5px;
+    width:100%;
+}
+.input label
+{
+  font-size: clamp(16px,2.5vw,20px);
 }
 #upload
 {
@@ -83,19 +92,37 @@ input::placeholder
 } */
 .form2
 {
-    padding:20px;
-    width:50%;
-    min-width: 570px;
+
+    /* width:100%; */
     display: flex;
     flex-direction: column;
     justify-content:center;
     align-items: center;
     /* background-image: linear-gradient(to bottom,#7fcaf89c,rgba(195, 251, 232, 0.611),rgba(158, 184, 255, 0.611)); */
     /* background-color: rgba(141, 204, 255, 0.775); */
-    background-color: rgba(255, 207, 193, 0.775);
+
+}
+.scroll
+{
+  width: 100%;
+  max-width:730px;
+    min-width: 150px;
+    height: 700px;
+  /* max-height:700px; */
+  overflow-y:auto;
+      background-color: rgba(255, 207, 193, 0.775);
     backdrop-filter: blur(10px);
     border-radius: 20px;
+        padding:20px;
+    padding-top:30px;
+    margin-inline:10px;
+
 }
+/* #contribution_form .scroll
+{
+  height:700px;
+  height:;
+} */
 .form_field
 {
     display:none;
@@ -103,8 +130,8 @@ input::placeholder
     width:100%;
     justify-content: center;
     align-items: center;
-    position:absolute;
-    top:70px;
+    position:fixed;
+    top:110px;
     /* background-color: transparent   ; */
 
 }
@@ -181,6 +208,7 @@ input::placeholder
   }
 }
 
+
  .save_btn span:nth-child(2) {
   top: -100%;
   right: 0;
@@ -238,5 +266,40 @@ input::placeholder
 
   50%,100% {
     bottom: 100%;
+  }
+}
+@media screen and (max-height:830px)
+{
+  .scroll
+  {
+    max-height: 80vh ;
+  }
+}
+@media screen and (min-height:830px)
+{
+  .scroll
+  {
+    height: 80vh ;
+  }
+}
+@media screen and (max-height:620px)
+{
+  .scroll
+  {
+    max-height: 75vh ;
+  }
+}
+@media screen and (max-height:520px)
+{
+  .scroll   
+  {
+    max-height: 70vh ;
+  }
+}
+@media screen and (min-height:1200px)
+{
+  .scroll   
+  {
+    height: auto;
   }
 }

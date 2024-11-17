@@ -31,31 +31,81 @@ $(document).ready(() => {
 						$("#save1").text("Wait...");
 					},
 					success: function (res) {
-						
+						let taken = parseInt(res);
 						if (sno == "0") {
-							if (!(res === "invalid")) {
+							if (taken == 1) {
+								Swal.fire({
+									icon: "error",
+									title: "Oops...",
+									text: "Something went wrong while inserting , the error might be already exists rollno used to reinsert to database try to check the roll no already exists otherwise it will somthing else",
+								});
 
+							}
+							else if (taken == 2) {
+								console.log(res);
+								Swal.fire({
+									title: "the image has not added as image is not satisfied below",
+									icon: "error",
+									html: ` <h1 style='text-align:justify;'>the criteria of images </h1>
+										<p style='text-align:justify;'>1. Image size must be in 5mb<br>
+										2. Image type must be jpg or png or jpeg. <br>
+										3. Image should be real image type,not to be fake one. <br><br>
+										still facing something error it might be problem to upload image to server.<p>
+									`,
+								});
+							}
+							else {
 								$("#myTable1").find("tbody").append(res);
-							}
-							else
-							{
-								alert("form data is not inserted in database there is a problem");
-							}
-							console.log(res);
-						} else {
-							if (!(res === "invalid")) {
+								document.getElementById("form_data1").reset();
+								Swal.fire({
+										icon: "success",
+										text: "Successfully inserted the alumini detail to table",
+									});
 
-								$("#myTable1").find("."+sno).html(res);
+								console.log(res);
+							}
+						} else {
+							let taken = parseInt(res);
+							if (taken === 1) {
+								Swal.fire({
+									icon: "error",
+									title: "Oops...",
+									text: "Something went wrong while updating , the error might be related to updating data in table",
+								});
+							}
+							else if (taken === 2)
+							{
+								Swal.fire({
+									title: "the image has not updated as image is not satisfied below",
+									icon: "error",
+									html: ` <h1 style='text-align:justify;'>the criteria of images </h1>
+										<p style='text-align:justify;'>1. Image size must be in 5mb<br>
+										2. Image type must be jpg or png or jpeg. <br>
+										3. Image should be real image type,not to be fake one. <br>
+										4. Image might be already existed. <br><br>
+										still facing something error it might be problem to upload image to server.<p>
+									`,
+								});
 							}
 							else
 							{
-								alert("form data is not inserted in database there is a problem");
-							}
 							console.log(res);
+								$("#myTable1").find("." + sno).html(res);
+								document.getElementById("form_data1").reset();
+								$("#alumini_form").css("display", "none");
+								Swal.fire({
+										icon: "success",
+										text: "Successfully Updated the alumini detail in the table",
+									});
+							}
 						}
 							
-						document.getElementById("form_data1").reset();
-						$("#save1").text("Save");
+
+						$("#save1").html(`<span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Save`);
 					}
 				});
 				
@@ -65,22 +115,41 @@ $(document).ready(() => {
 			$("#myTable1").on("click",".del",function(e){
 				var sno=$(this).attr("sno");
 				var btn=$(this);
-				if(confirm("Are You Sure ? ")){
-					$.ajax({
-						type:'POST',
-						url:'backend/aluminis/delete.php',
-						data:{action:sno },
-						beforeSend:function(){
-							$(btn).text("Deleting...");
-						},
-						success:function(res){
-							if (res) {
-								console.log(res);
-								btn.closest("tr").remove();
+				Swal.fire({
+					title: "Are you sure to delete alumini detail",
+					showDenyButton: true,
+					confirmButtonText: "Yes",
+					denyButtonText: `no`
+				}).then((result) => {
+					/* Read more about isConfirmed, isDenied below */
+					if (result.isConfirmed) {
+						$.ajax({
+							type: 'POST',
+							url: 'backend/aluminis/delete.php',
+							data: { action: sno },
+							beforeSend: function () {
+								$(btn).text("Deleting...");
+							},
+							success: function (res) {
+								let taken = parseInt(res);
+								if (taken == 1) {
+									btn.closest("tr").remove();
+									Swal.fire({
+										icon: "success",
+										text: "Successfully deleted the alumini detail from table",
+									});
+								}
+								else {
+									Swal.fire({
+										icon: "error",
+										title: "Oops...",
+										text: res,
+									});
+								}
 							}
-						}
-					});	
-				}
+						});
+					}
+				});
             });
             
             //fill all fields from table values #but
@@ -95,8 +164,9 @@ $(document).ready(() => {
 				$("#studname").val(studname);
 				var batch=row.closest("tr").find("td:eq(2)").text();
 				$("#batch").val(batch);
-				var empstatus=row.closest("tr").find("td:eq(3)").text();
+				var empstatus = row.closest("tr").find("td:eq(3)").text();
 				$("#status").val(empstatus);
+				// console.log($("#status").val(empstatus));
 				var cmpname=row.closest("tr").find("td:eq(4)").text();
 				$("#cmpname").val(cmpname);
 				var cmpdetails=row.closest("tr").find("td:eq(5)").text();
@@ -107,7 +177,11 @@ $(document).ready(() => {
 				$("#phno").val(phno);
 				var email=row.closest("tr").find("td:eq(8)").text();
 				$("#email").val(email);
-				$("#save1").text("Update");
+				$("#save1").html(`<span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                UPDATE`);
 				const form_field= document.getElementsByClassName("form_field");
 				form_field[0].style.display = "flex";
 			});

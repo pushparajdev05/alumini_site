@@ -23,15 +23,52 @@ $(document).ready(() => {
 							$("#save2").text("Wait...");
 						},
 						success:function(res){
-							if(sno=="0"){
-								$("#myTable2").find("tbody").append(res);
+							if (sno == "0") {
+								let taken = parseInt(res)
+								if (taken == 1)
+								{
+									Swal.fire({
+										icon: "error",
+										title: "Oops...",
+										text: "Something went wrong while inserting , the error might be related to inserting data to table in database",
+									});
+								}
+								else {
+									
+									$("#myTable2").find("tbody").append(res);
+									document.getElementById("form_data2").reset();
+									Swal.fire({
+										icon: "success",
+										text: "Successfully inserted the contribution to table",
+									});
+								}
 							} else {
-							console.log(res);
-								$("#myTable2").find("."+sno).html(res);
+								// console.log(res);
+								let taken = parseInt(res);
+								if (taken == 1)
+								{
+									Swal.fire({
+										icon: "error",
+										title: "Oops...",
+										text: "Something went wrong while updating , the error might be related to updating data in table",
+									});
+								}
+								else {
+									$("#myTable2").find("."+sno).html(res);
+									document.getElementById("form_data2").reset();
+									$("#contribution_form").css("display", "none");
+									Swal.fire({
+										icon: "success",
+										text: "Successfully updated the contribution in table",
+									});
+								}
 							}
 							
-							document.getElementById("form_data2").reset();
-							$("#save2").text("Save");
+							$("#save2").html(`<span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Save`);
 						}
 					});
 				
@@ -41,21 +78,42 @@ $(document).ready(() => {
 			$("#myTable2").on("click",".del",function(e){
 				var sno=$(this).attr("sno");
 				var btn=$(this);
-				if(confirm("Are You Sure ? ")){
-					$.ajax({
-						type:'POST',
-						url:'backend/contribution/delete.php',
-						data:{action:sno },
-						beforeSend:function(){
-							$(btn).text("Deleting...");
-						},
-						success:function(res){
-							if(res){
-								btn.closest("tr").remove();
+				Swal.fire({
+					title: "Are you sure to delete alumini contribution",
+					showDenyButton: true,
+					confirmButtonText: "Yes",
+					denyButtonText: `no`
+				}).then((result) => {
+					/* Read more about isConfirmed, isDenied below */
+					if (result.isConfirmed) {
+						$.ajax({
+							type: 'POST',
+							url: 'backend/contribution/delete.php',
+							data: { action: sno },
+							beforeSend: function () {
+								$(btn).text("Deleting...");
+							},
+							success: function (res) {
+								let taken = parseInt(res);
+								if (taken == 0) {
+									btn.closest("tr").remove();
+									Swal.fire({
+										icon: "success",
+										text: "Successfully deleted the contribution from table",
+									});
+								}
+								else
+								{
+									Swal.fire({
+										icon: "error",
+										title: "Oops...",
+										text: res,
+									});
+									}
 							}
-						}
-					});	
-				}
+						});
+					}
+				});
             });
             
             //fill all fields from table values #but
@@ -75,7 +133,11 @@ $(document).ready(() => {
 				$("#title").val(event_title);
 				var event_desc=row.closest("tr").find("td:eq(4)").text();
 				$("#desc").val(event_desc);
-				$("#save2").text("Update");
+				$("#save2").html(`<span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                UPDATE`);
 				const form_field= document.getElementsByClassName("form_field");
 				form_field[1].style.display = "flex";
 			});

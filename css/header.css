@@ -63,6 +63,8 @@ header
     background-color:var(--primary-red);
     display:flex;
     justify-content: space-between;
+    align-items:center;
+    position:relative;
 }
 #logo_img
 {
@@ -230,7 +232,148 @@ padding-top:5px;
 
 .icon path {
   stroke:var(--primary-red);
-  stroke-width: 2px;
+  stroke-width: 1px;
   -webkit-transition: .2s linear;
   transition: .2s linear;
+}
+.menu
+{
+  display:none;
+  color:white;
+  margin-right:20px;
+
+  
+}
+
+@media screen and (max-width:400px)
+{
+  .icon-wrapper svg
+  {
+    width:25px;
+    height:25px;
+  }
+  .icon-wrapper
+  {
+    width:40px;
+    height:40px;
+  }
+  .admin_btn
+  {
+    width:40px;
+    height:40px;
+  }
+}
+@media screen and (max-width:625px)
+{
+  .menu
+  {
+    display:block;
+  }
+  
+  .add_scale
+  {
+    transform:scaleY(1) !important;
+    /* display:block !important; */
+  }
+  .navigation
+  {
+    /* display: none; */
+    display: block;
+      transform:scaleY(0);
+  transition:0.3s transform;
+    position:absolute;
+    top:100%;
+    width:100%;
+    background-color:var(--primary-red);
+    border-top:solid 2px var(--white);
+    transform-origin: top;
+  }
+  .navigation ul
+  {
+    flex-direction:column;
+  }
+    .navigation ul li
+    {
+      margin:10px;
+    }
+    nav a 
+    {
+      font-size:clamp(17px,4vw,20px);
+    }
+    .navigation ul button
+    {
+      margin:10px;
+    }
+    #contact
+    {
+      flex-direction: column;
+    }
+    #sec2
+    {
+      padding-top:20px;
+      width:100% !important;
+    }
+    #sec1
+    {
+      padding-top:20px;
+      width:100% !important;
+      padding-inline:10px;
+    }
+    #part2
+    {
+      display:flex !important;
+      align-items:flex-start !important;
+    }
+    .content .heading
+    {
+      margin-bottom:10px;
+    }
+    .content .para
+    {
+      font-size:clamp(13px,3vw,18px) !important;
+    }
+    .para 
+    {
+        font-size:max(14px,2.6vw) !important;
+        padding-bottom:10px !important;
+        
+    }
+    .heading
+    {
+      font-size:25px !important;
+      padding:0px !important;
+      padding-block: 5px;
+  }
+  .sub_head
+  {
+    font-size: 17px !important;
+  }
+  .img_desc .img .content 
+  {
+    padding:5px !important;
+  }
+  .img_desc .img .content button{
+    margin-top:0 !important;
+  }
+  #explore
+  {
+    font-size: max(12px,2vw) !important;
+  }
+  .layout1
+  {
+    padding-block:6vw !important;
+  }
+  .layout2
+  {
+    padding-top:2vw;
+  }
+  
+  #sec1 h1
+    {
+        font-size:25px !important;
+    }
+    #part2 h1
+    {
+      font-size:25px !important;
+    }
 }

@@ -2,18 +2,47 @@
 {
     display:none;
     place-items: center;
-    width:70%;
+    width:calc(100% - 20px);
+    max-width: 1000px;
     min-width: 130px;
-    max-height: 600px;
-    position:absolute;
+    position:fixed;
+        border-radius:10px;
     background-color: var(--primary-green);
-    top:50%;    
-    left:50%;    
+    top:450px;    
+    left:50%;
+    max-height:600px;    
     transform:translate(-50%,-50%);
-    padding:30px;
-    border-radius:10px;
+    /* padding-inline: 10px; */
     overflow-y: auto;
     color:var(--white);
+    /* margin-inline:10px; */
+}
+
+#contribution_close
+{
+    right:20px;
+}
+.padding
+{
+    position: relative;
+    /* background-color: var(--primary-green); */
+    width:100%;
+    padding:30px;
+    /* border-radius:10px; */
+        height: 100%;
+        overflow-x: auto;
+
+
+
+}
+.row h4
+{
+font-size:clamp(17px,2.6vw,20px);
+}
+.row p
+{
+font-size:clamp(17px,2.6vw,20px);
+
 }
 #content
 {
@@ -35,6 +64,7 @@
 .col1
 {
     width:30%;
+    min-width: max-content;
 }
 .col2
 {
@@ -68,30 +98,61 @@
     font-family:var(--primary-font);
     color:var(--white);
 }
-/* #pop_table td
+@media screen and (max-width:1000px)
 {
-    padding-top:10px;
-    font-family: var(--primary-font);
-    font-size:20px;
-    text-align:left !important;
+    .pop_sec .row
+    {
+        flex-direction: column ;
+    }
+    #pop_up
+    {
+        top:420px;
+    }
+    .row .col2{
+        width:100%;
+    }
 }
-#pop_table td:first-child
+@media screen and (max-width:500px)
 {
-    margin-left:-60px;
+    .padding
+    {
+        padding-inline:15px;
+
+    }
 }
-#pop_table td:last-child
+@media screen and (max-height:720px)
 {
-    margin-left:60px;
+    #pop_up
+    {
+        /* height: 80%; */
+        top:370px;
+        max-height:80%;
+    }
 }
-.event td{
-    margin-left:0px !important;
-    font-size: 25px !important;
-    font-weight: 600;
-}
-#pop_table td:first-child
+@media screen and (max-height:630px)
 {
-    width:30%;
+    #pop_up
+    {
+        /* height:75%; */
+        max-height:75%;
+        top:calc(75% - 20%);
+    }
 }
-#pop_table .Description
+/* @media screen and (max-height:590px)
 {
+    #pop_up
+    {
+        height: 75%;
+        max-height:100%;
+        top:300px;
+    }
+}
+@media screen and (max-height:500px)
+{
+    #pop_up
+    {
+        height: 75%;
+        max-height:100%;
+        top:270px;
+    }
 } */
