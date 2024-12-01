@@ -1,7 +1,7 @@
 <?php
 session_start();
 //
-$_SESSION["admin"] = "admin";
-header("location: /alumini_site/admin.php");
+$_SESSION["login"] = "admin";
+header("location: /alumini_site/admin.php?page=3");
 die();
 ?>

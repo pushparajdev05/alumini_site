@@ -2,9 +2,9 @@
     <?php
         include './backend/config.php';
     session_start();
-    $_SESSION["from"] = "students.php";
+    $_SESSION["from"] = "students.php?page=2";
     ?>
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang='en'>
 <head>
     <meta charset='UTF-8'>
@@ -204,6 +204,7 @@
 ?>
     <script src='./javascript/datatable/jquery-3.7.1.js'></script>
     <script src='./javascript/datatable/datatable.js'></script>
+    <script src="./javascript/sign_out.js"></script>
     <script src='./javascript/general.js'></script>
     <script type='module' src='./javascript/sign_in.js'></script>
     <script type='module' src='./javascript/contribution.js'></script>
@@ -215,5 +216,33 @@
     <script>
         let table = new DataTable('#myTable');
     </script>   
+            <script>
+        var session_login="<?php echo $_SESSION["login"]??null?>";
+        const menu_option = document.getElementById("nav_option").children;
+        const profile_text=document.getElementById("profile_text");
+        console.log(menu_option);
+            if (session_login == "admin")
+            {
+                menu_option[2].style.display="block";
+                menu_option[4].style.display="flex";
+                menu_option[5].style.display="none";
+                profile_text.innerText="Admin";
+            }
+            else if(session_login == "staff")
+            {
+                menu_option[3].style.display="block";
+                menu_option[4].style.display="flex";
+                menu_option[5].style.display="none";
+                profile_text.innerText="Staff";
+
+            }
+            else
+            {
+                menu_option[2].style.display="none";
+                menu_option[3].style.display="none";
+                menu_option[5].style.display="block";
+
+            }
+        </script>
     </body>
 </html>

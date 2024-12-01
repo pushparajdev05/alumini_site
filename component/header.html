@@ -5,18 +5,51 @@
             <img id="logo_img" src="./assets/img/measi_logo.png" alt="no Image">
         </div>
         <div class="menu">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-align-justify"><path d="M3 12h18"/><path d="M3 18h18"/><path d="M3 6h18"/></svg>
+
+    <label class="container">
+    <input type="checkbox">
+    <div class="checkmark">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    </label>
         </div>
     <nav class="navigation">
-      <ul>
-                <li><a href="./index.php">Dashboard</a></li>
-                <li><a href="./students.php">Students</a></li>
-                  <button type="button" class="admin_btn">
-                    <p class="paragraph">Login</p>
-                    <span class="icon-wrapper">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30px" height="30px" fill="currentColor"><path d="M4 22C4 17.5817 7.58172 14 12 14C16.4183 14 20 17.5817 20 22H4ZM12 13C8.685 13 6 10.315 6 7C6 3.685 8.685 1 12 1C15.315 1 18 3.685 18 7C18 10.315 15.315 13 12 13Z"></path></svg>
-                    </span>
-                    </button>  
+      <ul id="nav_option">
+                <li id="dashboard" class="underline"><a href="./index.php?page=1">Dashboard</a></li>
+                <li id="students" class="underline"><a href="./students.php?page=2">Students</a></li>
+                <li id="administrator" class="underline"><a href="./admin.php?page=3">Admin</a></li>
+                <li id="staff" class="underline"><a href="./staff.php?page=4">Staff</a></li>
+                <div id="profile">
+                    <div id="profile_img">
+                        <img src="./assets/img/profile.png" alt="no_image" width="30px" height="30px">
+                        <div class="bottom">
+                            <span id="profile_text">Admin</span>
+                            <div class="profile_icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg>
+                            </div>
+                        </div>
+                    </div>
+                <div id="log_out">
+                    <button type="button" id="logout">
+                        <span>Logout</span>
+                        <div class="logout_icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+                        </div>
+                    </button>
+                </div> 
+            </div>   
+            <div id="login_btn">
+                <button type="button" class="button_btn" style="--clr: #ffffff;">
+                    <span class="button-decor"></span>
+                    <div class="button-content">
+                        <div class="button__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M3.78307 2.82598L12 1L20.2169 2.82598C20.6745 2.92766 21 3.33347 21 3.80217V13.7889C21 15.795 19.9974 17.6684 18.3282 18.7812L12 23L5.6718 18.7812C4.00261 17.6684 3 15.795 3 13.7889V3.80217C3 3.33347 3.32553 2.92766 3.78307 2.82598ZM12 11C13.3807 11 14.5 9.88071 14.5 8.5C14.5 7.11929 13.3807 6 12 6C10.6193 6 9.5 7.11929 9.5 8.5C9.5 9.88071 10.6193 11 12 11ZM7.52746 16H16.4725C16.2238 13.75 14.3163 12 12 12C9.68372 12 7.77619 13.75 7.52746 16Z"></path></svg>
+                        </div>
+                        <span class="button__text">Login</span>
+                    </div>
+                </button>
             </ul>
     </nav>
     </div>

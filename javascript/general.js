@@ -1,9 +1,9 @@
 const login_form = document.getElementById("login_form");
 const close_btn = document.getElementsByClassName("close");
-const admin_btn = document.getElementsByClassName("admin_btn");
+const login_btn = document.getElementById("login_btn");
 
 console.log(close_btn);
-admin_btn[0].addEventListener("click", () => {
+login_btn.addEventListener("click", () => {
     login_form.style.display = "flex";
     document.body.style.overflowY = "hidden";
     // location.href = "./admin.php";

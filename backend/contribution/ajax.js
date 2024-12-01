@@ -123,7 +123,7 @@ $(document).ready(() => {
 				$("#sno2").val(sno);
 				var row=$(this);
 				var rollno = row.closest("tr").find("td:eq(0)").text();
-				console.log(rollno)
+				console.log(rollno);
 				$("#rollno2").val(rollno);
 				var studname=row.closest("tr").find("td:eq(1)").text();
 				$("#studname2").val(studname);
@@ -141,4 +141,5 @@ $(document).ready(() => {
 				const form_field= document.getElementsByClassName("form_field");
 				form_field[1].style.display = "flex";
 			});
+
 });

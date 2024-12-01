@@ -1,11 +1,21 @@
 
     <?php
     session_start();
-    if(!isset($_SESSION["admin"]))
+    if(!isset($_SESSION["login"]))
     {
-        $from=$_SESSION["from"];
-        header("location: ./{$from}");
-        die();
+
+            $from=$_SESSION["from"];
+            header("location: ./{$from}");
+            die();
+    }
+    else
+    {
+        if($_SESSION["login"] != "admin")
+        {
+            $from=$_SESSION["from"];
+            header("location: ./{$from}");
+            die();
+        }
     }
         include "./backend/config.php";
         
@@ -36,7 +46,7 @@
 </head>
 <body id="body">
     <?php
-        include "./component/header_logout.html";
+        include "./component/header.html";
     ?>
     <div id="field" class="form">
         <?php
@@ -213,7 +223,7 @@
                 <th style="text-align: center;">Action</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="contribute_body">
             <?php
                 $sql="select * from contributions";
                 $res=$con->query($sql);
@@ -258,14 +268,11 @@
     <script src="./backend/aluminis/ajax.js"></script>
     <script src="./backend/aluminis/load_csv_img.js"></script>
     <script src="./backend/contribution/ajax.js"></script>
+    <script src="./javascript/sign_out.js"></script>
     <script type="module" src="./backend/admins/ajax.js"></script>
-    <script type="module" src="./javascript/sign_out.js"></script>
     <script type="module" src="./javascript/button.js"></script>
     <script type='module' src='./javascript/navbar.js'></script>
         <script src="./assets/packages/sweetalert2/sweetalert2.all.min.js"></script>
-
-
-
     <script type="module"> 
         const table1 = new DataTable('#myTable1',
     {
@@ -289,6 +296,33 @@
 
 
     </script>
+            <script>
+        var session_login="<?php echo $_SESSION["login"]??null?>";
+        const menu_option = document.getElementById("nav_option").children;
+        const profile_text=document.getElementById("profile_text");
+        console.log(menu_option);
+            if (session_login == "admin")
+            {
+                menu_option[2].style.display="block";
+                menu_option[4].style.display="flex";
+                menu_option[5].style.display="none";
+                profile_text.innerText="Admin";
+            }
+            else if(session_login == "staff")
+            {
+                menu_option[3].style.display="block";
+                menu_option[4].style.display="flex";
+                menu_option[5].style.display="none";
+                profile_text.innerText="Staff";
 
+            }
+            else
+            {
+                menu_option[2].style.display="none";
+                menu_option[3].style.display="none";
+                menu_option[5].style.display="block";
+
+            }
+        </script>
 </body>
 </html>

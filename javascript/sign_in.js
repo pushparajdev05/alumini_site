@@ -30,6 +30,7 @@ $(document).ready(() => {
 						
 					
         });
+        
       }
       else {
         Swal.fire({

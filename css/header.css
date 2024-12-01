@@ -124,13 +124,21 @@ nav ul li::after
     width:100%;
     background-color: var(--white);
     position:absolute;
+        transform-origin: right;
     bottom:0;
     left:0;
-    transform:scaleX(0);
-    transform-origin: right;
     transition: 0.3s;
 }
-nav ul li:hover::after
+nav ul .line::after
+{
+    transform:scaleX(1);
+}
+nav ul .underline::after
+{
+    transform:scaleX(0);
+
+}
+nav ul .underline:hover::after
 {
     height:2px;
     transform:scaleX(1);
@@ -142,57 +150,6 @@ nav ul li:hover a{
     
 }
 
-/* login style  */
-
-/* From Uiverse.io by boryanakrasteva */ 
-.admin_btn {
-  cursor: pointer;
-  width: 50px;
-  height: 50px;
-  border: none;
-  position: relative;
-  border-radius: 10px;
-  -webkit-box-shadow: 1px 1px 5px .2px #00000035;
-  box-shadow: 1px 1px 5px .2px #00000035;
-  -webkit-transition: .2s linear;
-  transition: .2s linear;
-  transition-delay: .2s;
-
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: space-around;
-}
-.admin_btn svg
-{
-    color:var(--primary-red);
-      transition: .2s linear;
-  transition-delay: .2s;
-}
-.admin_btn:hover {
-  width: 130px;
-  transition-delay: .2s;
-}
-
-.admin_btn:hover > .paragraph {
-  visibility: visible;
-  opacity: 1;
-  -webkit-transition-delay: .4s;
-  transition-delay: .4s;
-}
-
-.admin_btn:hover > .icon-wrapper .icon {
-  transform: scale(1.1);
-}
-
-/* .bnt:hover > .icon-wrapper .icon path {
-  /* stroke:var(--primary-red); 
-}*/
 .admin_btn:hover
 {
     background-color: var(--white);
@@ -376,4 +333,292 @@ padding-top:5px;
     {
       font-size:25px !important;
     }
+}
+
+
+/* From Uiverse.io by NAKAMOZ */ 
+/* Hide the default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.container {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-size: 20px;
+  user-select: none;
+}
+
+.checkmark {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 1.3em;
+  width: 1.3em;
+}
+
+.checkmark span {
+  width: 32px;
+  height: 3px;
+  background-color: white;
+  position: absolute;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+}
+
+.checkmark span:nth-child(1) {
+  top: 12%;
+}
+
+.checkmark span:nth-child(2) {
+  top: 50%;
+}
+
+.checkmark span:nth-child(3) {
+  top: 87%;
+}
+
+.container input:checked + .checkmark span:nth-child(1) {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  -webkit-transform: translateY(-50%) rotate(45deg);
+  -moz-transform: translateY(-50%) rotate(45deg);
+  -ms-transform: translateY(-50%) rotate(45deg);
+  -o-transform: translateY(-50%) rotate(45deg);
+}
+
+.container input:checked + .checkmark span:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%) rotate(-45deg);
+  -webkit-transform: translateY(-50%) rotate(-45deg);
+  -moz-transform: translateY(-50%) rotate(-45deg);
+  -ms-transform: translateY(-50%) rotate(-45deg);
+  -o-transform: translateY(-50%) rotate(-45deg);
+}
+
+.container input:checked + .checkmark span:nth-child(3) {
+  transform: translateX(-50px);
+  -webkit-transform: translateX(-50px);
+  -moz-transform: translateX(-50px);
+  -ms-transform: translateX(-50px);
+  -o-transform: translateX(-50px);
+  opacity: 0;
+}
+
+
+/* profile image styles */
+#profile
+{
+  display: none;
+  justify-content: center;
+  padding-block:5px;
+  border-radius:10px;
+  padding-left:5px;
+  background-color:rgb(255, 65, 65); 
+}
+#profile:hover
+{
+  background-color:white;
+}
+#profile:hover #profile_text
+{
+    color:var(--primary-green);
+}
+#profile:hover .profile_icon svg
+{
+    color:var(--primary-green);
+}
+#profile_text
+{
+    color:white;
+    line-height:25px;
+    font-size:20px;
+     padding-left:5px;
+}
+.profile_icon
+{
+    width:25px;
+    height:25px;
+
+}
+.profile_icon svg
+{
+  color:white;
+}
+#profile_img
+{
+    display:flex;
+    /* flex-direction:column; */
+    align-items:center;
+    justify-content:center;
+    /* justify-content: space-evenly; */
+}
+.bottom
+{
+    display:flex;
+}
+
+/* login button styles */
+
+/* From Uiverse.io by Creatlydev */ 
+.button_btn {
+  text-decoration: none;
+  line-height: 1;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 10px 10px 20px rgba(0,0,0,.05);
+  background-color: rgb(255, 65, 65);
+  color: #121212;
+  border: none;
+  cursor: pointer;
+  padding-block:5px;
+}
+
+.button-decor {
+  position: absolute;
+  inset: 0;
+  background-color: var(--clr);
+  transform: translateX(-100%);
+  transition: transform .3s;
+  z-index: 0;
+}
+
+.button-content {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+}
+
+.button__icon {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  margin-left:5px;
+}
+.button__icon svg
+{
+  color:white;
+}
+
+.button__text {
+  display: inline-block;
+  transition: color .2s;
+  padding-block:5px;
+  padding-inline:7px 15px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 150px;
+  font-size:20px;
+  color:white;
+}
+
+.button_btn:hover .button__text {
+  color: var(--primary-green);
+}
+.button_btn:hover .button__icon svg
+{
+  color:var(--primary-green);
+}
+.button_btn:hover .button-decor {
+  transform: translate(0);
+}
+
+/* logout styles */
+
+#log_out
+{
+    position:absolute;
+    display:none;
+    top:30px;
+    animation-duration: .5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    /* animation:logout .5s ease-out forwards; */
+}
+#logout
+{
+    display :flex;
+    border:none;
+    outline:none;
+    align-items:center;
+    border-radius:5px;
+    font-size:15px;
+    padding:5px;
+    padding-left:10px;
+    background-color: var(--primary-green);
+    
+}
+#logout:hover
+{
+    background-color:var(--primary-red);
+
+}
+#logout span
+{
+    color:white;
+}
+#logout svg
+{
+    color:white;
+}
+#logout .logout_icon
+{
+    padding-left:5px;
+}
+@keyframes logout
+{
+    0%
+    {
+        top:30px;
+        opacity: 0;
+    }
+    50%
+    {
+      opacity: 0.5;
+    }
+    100%
+    {
+        top:80px;
+        opacity: 1;
+        
+    }
+}
+@keyframes logout_reverse
+{
+  0%
+  {
+      top:80px;
+      opacity: 1;
+      
+  }
+  50%
+  {
+    opacity: 0.5;
+  }
+  100%
+  {
+      top:30px;
+      opacity: 0;
+      display:none;
+  }
+}
+
+/* display and non display */
+
+#administrator,#staff
+{
+  display:none;
 }

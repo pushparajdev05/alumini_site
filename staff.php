@@ -1,11 +1,20 @@
 
      <?php
     session_start();
-    if(!isset($_SESSION["staff"]))
+    if(!isset($_SESSION["login"]))
     {
-        $from=$_SESSION["from"];
-        header("location: ./{$from}");
-        die();
+            $from=$_SESSION["from"];
+            header("location: ./{$from}");
+            die();
+    }
+    else
+    {
+        if($_SESSION["login"] != "staff")
+        {
+            $from=$_SESSION["from"];
+            header("location: ./{$from}");
+            die();
+        }
     }
         include "./backend/config.php";
         
@@ -34,7 +43,7 @@
 </head>
 <body>
     <?php
-        include "./component/header_logout.html";
+        include "./component/header.html";
     ?> 
     <div>   
     <section id="table_section">
@@ -98,37 +107,42 @@
     </div>
 </section>
     <script src="./javascript/filter_pane.js"></script>
+    <script src="./javascript/sign_out.js"></script>
     <script src="./javascript/datatable/jquery-3.7.1.js"></script>
     <script src="./javascript/datatable/datatable.js"></script>
     <script src="./javascript/ajax.js"></script>
-    <script src="./assets/packages/sweetalert2/sweetalert2.all.min.js"></script>
-
-        <!-- <script src="./javascript/sign_out.js"></script> -->
-                          <script>
-        const sign_out = document.getElementById("sign_out");
-        sign_out.addEventListener("click", () => {
-        Swal.fire({
-            title: "Do you want to log out from Staff",
-            showDenyButton: true,
-            confirmButtonText: "Yes",
-            denyButtonText: `no`
-        }).then((result) => {
-            /* Read more about isConfirmed, isDenied below */
-            if (result.isConfirmed) {
-                    location.href="./backend/authentication/staff_logout.php";
-            }
-            // } else if (result.isDenied) {
-            //   Swal.fire("Changes are not saved", "", "info");
-            // }
-        });
-        
-        });
-    </script>
     <script>
         let table = new DataTable('#myTable');
     </script>
     <script type='module' src='./javascript/navbar.js'></script>
+        <script>
+        var session_login="<?php echo $_SESSION["login"]??null?>";
+        const menu_option = document.getElementById("nav_option").children;
+        const profile_text=document.getElementById("profile_text");
+        console.log(menu_option);
+            if (session_login == "admin")
+            {
+                menu_option[2].style.display="block";
+                menu_option[4].style.display="flex";
+                menu_option[5].style.display="none";
+                profile_text.innerText="Admin";
+            }
+            else if(session_login == "staff")
+            {
+                menu_option[3].style.display="block";
+                menu_option[4].style.display="flex";
+                menu_option[5].style.display="none";
+                profile_text.innerText="Staff";
 
+            }
+            else
+            {
+                menu_option[2].style.display="none";
+                menu_option[3].style.display="none";
+                menu_option[5].style.display="block";
+
+            }
+        </script>
     
 </body>
 </html>

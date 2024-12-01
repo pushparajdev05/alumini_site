@@ -1,7 +1,20 @@
 <?php
     session_start();
-    $_SESSION["from"] = "index.php";
-// echo "{$_SESSION["from"]}";
+    $_SESSION["from"] = "index.php?page=1";
+
+    //checking admin is logged or didn't
+    if (!isset($_SESSION["admin"])) {
+        $admin = 1;
+    } else {
+        $admin = 0;
+    }
+    //checking staff is logged or didn't
+    if (!isset($_SESSION["staff"])) {
+    $staff = 1;
+    } else {
+    $staff = 0;
+    }
+
     ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +25,7 @@
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/login.css">
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/image_slider.css">
     <link rel="stylesheet" href="./assets/packages/sweetalert2/sweetalert2.min.css">
     <link rel="stylesheet" href="./css/index_responsive.css">
     <title>Dashboard</title>  
@@ -26,11 +40,26 @@
     ?>        
     </div>
     <section id="section1">
-        <div id="video_img">
-            <video  muted autoplay style="grid-area: video;">
-                <source src="./assets/video/video1.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+        <div class="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item">
+                    <img src="./assets/img/image1.jpg" alt="No image">
+                </div>
+                <div class="carousel-item">
+                    <img src="./assets/img/image2.jpg" alt="No image">
+                </div>
+                <div class="carousel-item">
+                    <img src="./assets/img/image3.jpg" alt="No image">
+                </div>
+                <div class="carousel-item">
+                    <img src="./assets/img/image4.jpg" alt="No image">
+                </div>
+            </div>
+            <div class="carousel-controls">
+                <span class="prev"></span>
+                <span class="next"></span>
+            </div>
+            <div class="carousel-indicators"></div>
         </div>
     </section>
     <section id="section2" class="layout1">
@@ -235,12 +264,22 @@
      <?php
         include "./component/footer.html";
     ?>
+    <script>
+        var admin_check=<?php echo $admin ?>;
+        var staff_check=<?php echo $staff ?>;
+    </script>
     <script src="./javascript/general.js"></script>
+    <script src="./javascript/image_silder.js"></script>
+    <script src="./javascript/sign_out.js"></script>
     <script src="./javascript/datatable/jquery-3.7.1.js"></script>
     <script type="module" src="./javascript/sign_in.js"></script>
     <script type="module" src="./javascript/login_signup.js"></script>
     <script type='module' src='./javascript/navbar.js'></script>
     <script src="./assets/packages/sweetalert2/sweetalert2.all.min.js"></script>
+    <script>
+        const dashboard=document.getElementById("dashboard");
+        dashboard.className="line";
+    </script>
     <script>
         
 
@@ -255,7 +294,33 @@
         });
        
     </script>
+        <script>
+        var session_login="<?php echo $_SESSION["login"]??null?>";
+        const menu_option = document.getElementById("nav_option").children;
+        const profile_text=document.getElementById("profile_text");
+        console.log(menu_option);
+            if (session_login == "admin")
+            {
+                menu_option[2].style.display="block";
+                menu_option[4].style.display="flex";
+                menu_option[5].style.display="none";
+                profile_text.innerText="Admin";
+            }
+            else if(session_login == "staff")
+            {
+                menu_option[3].style.display="block";
+                menu_option[4].style.display="flex";
+                menu_option[5].style.display="none";
+                profile_text.innerText="Staff";
 
+            }
+            else
+            {
+                menu_option[2].style.display="none";
+                menu_option[3].style.display="none";
+                menu_option[5].style.display="block";
 
+            }
+        </script>
 </body> 
 </html>

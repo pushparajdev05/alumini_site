@@ -4,19 +4,43 @@ const table2 = document.getElementById("table2");
 const form2 = document.getElementsByClassName("form2");
 var flag = 0;
 switch_btn.addEventListener("click", () => {
-    if (flag == 0)
-    {
+    if (flag == 0) {
         table1.style.display = "none";
         table2.style.display = "block";
         flag = 1;
     }
-    else
-    {
+    else {
         table2.style.display = "none";
         table1.style.display = "block";
         flag = 0;
     }
-})
+});
+$(document).ready(function (e) {
+            $("#contribute_body").on("click", "tr", function (e) {
+            e.preventDefault();
+            const selected_row = $(this);
+            const roll=selected_row.find("td:eq(0)").text();
+            const stu_name = selected_row.find("td:eq(1)").text();
+            $("#rollno2").val(roll);
+            $("#studname2").val(stu_name);
+            if (flag == 0) {
+                save1.innerHTML = `<span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Save`;
+                form_field[0].style.display = "flex";
+            }
+            else {
+       
+                form_field[1].style.display = "flex";
+            }
+            console.log("row clicked");
+
+	});
+});
+//TODO: contribution table body event for assign value to the rollno and sname from form
+
     //TODO:close button for alumini form field
 const close_btn = document.getElementsByClassName("close_btn");
 const add_btn = document.getElementById("add_btn");
