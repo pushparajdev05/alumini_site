@@ -18,7 +18,7 @@ if (isset($_FILES['csv'])) {
     }
     if ($uploadOk == 0) {
 
-            echo "something went wrong,Image have not uploaded on server ";
+            echo "something went wrong,CSV have not uploaded on server ";
 
     } else {
         if (move_uploaded_file($_FILES["csv"]["tmp_name"],$csvFile)) {

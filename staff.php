@@ -106,6 +106,7 @@
     </div>
     </div>
 </section>
+    <script src="./assets/packages/sweetalert2/sweetalert2.all.min.js"></script>
     <script src="./javascript/filter_pane.js"></script>
     <script src="./javascript/sign_out.js"></script>
     <script src="./javascript/datatable/jquery-3.7.1.js"></script>

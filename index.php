@@ -109,7 +109,9 @@
                     <img src="./assets/img/guidance.jpg" alt="No Image">
                     <div class="content">
                         <h1 class="heading">Guidance</h1>
-                         <p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem porro debitis, perspiciatis dicta similique pariatur voluptates iusto deleniti impedit nesciunt, cumque, quibusdam omnis! Inventore quam eaque ad modi, dolore est iste exercitationem reiciendis amet veritatis officiis similique quae facilis ducimus eveniet natus ea! Animi, autem libero? Doloribus ut ullam blanditiis.</p>
+                         <p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem porro debitis, perspiciatis dicta similique pariatur voluptates iusto deleniti impedit nesciunt, cumque, quibusdam omnis! Inventore quam eaque ad modi, dolore est 
+                            
+                         iste exercitationem reiciendis amet veritatis officiis similique quae facilis ducimus eveniet natus ea! Animi, autem libero? Doloribus ut ullam blanditiis.</p>
                     </div>
                 </div>
                 <div class="img bottom">
@@ -162,7 +164,7 @@
             </div>
     </section>
     <section id="section7">
-        <h1 class="heading">Aluminis Of Measi</h1>
+        <h1 class="heading">Alumni Of Measi IT</h1>
         <div class="scroller">
         <ul class="lists">
             <li class="item item1">   

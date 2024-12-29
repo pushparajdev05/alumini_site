@@ -56,7 +56,7 @@ if (isset($_FILES['img_files'])) {
     $image_verification_error = [
         101,
         0,
-        "0", "<h2 style='text-align:justify;'>those images has not uploaded as images are not satisfied below</h2><br>
+        "0", "<h2 style='text-align:justify;'>those images has not uploaded as images are not satisfied below criteria</h2><br>
     <h3 style='text-align:justify;text-decoration:underline;'>the criteria of images </h3>
 										<p style='text-align:justify;'>1. Image size must be in 5mb<br>
 										2. Image type must be jpg or png or jpeg. <br>

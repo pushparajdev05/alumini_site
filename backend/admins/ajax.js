@@ -4,6 +4,7 @@ $(document).ready(() => {
 
     $("#add_admin_btn").click(async () => {
         let admin = $("#admin_id").val().trim();
+        console.log(admin);
         const password = $("#pwd_id").val().trim();
         if (!((admin === "") || (password === ""))) {
             $.ajax({
