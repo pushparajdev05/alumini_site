@@ -114,7 +114,7 @@ if (isset($_FILES['img_files'])) {
                         // }
                     } else {
                         unlink($file_current_path);
-                        echo json_encode([4, "sorry this $images image rollno does not exist in alumini table , try to give correct rollno"]);
+                        echo json_encode([4, "sorry this $images image name $raw_file_name rollno does not exist in alumini table , try to give correct rollno and rest of images have not uploaded"]);
                     exit();
                     }
 

@@ -16,9 +16,10 @@ switch_btn.addEventListener("click", () => {
     }
 });
 $(document).ready(function (e) {
-            $("#contribute_body").on("click", "tr", function (e) {
-            e.preventDefault();
-            const selected_row = $(this);
+            $("#contribute_body").on("click", "tr td:not(:last-child)", function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            const selected_row = $(this).closest("tr");
             const roll=selected_row.find("td:eq(0)").text();
             const stu_name = selected_row.find("td:eq(1)").text();
             $("#rollno2").val(roll);

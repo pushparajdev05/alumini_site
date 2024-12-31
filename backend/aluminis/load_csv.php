@@ -41,7 +41,7 @@ if($uploaded==true)
 {
     if (file_exists($csvFile)) {
         if (($handle = fopen($csvFile, "r")) !== FALSE) {
-            $count = 0;
+            $count = 1;
             $header = fgetcsv($handle, 1000, ",");
             $img_path = "backend/aluminis/aluminis_img/no_image.jpg";
             while (($data = fgetcsv($handle, 1200, ",")) !== FALSE) 
@@ -57,13 +57,14 @@ if($uploaded==true)
                 $email = trim($data[8]);
                 $stmt = $con->prepare("insert into aluminis (rollno,studname,batch,empstatus,cur_cmp_name,cur_cmp_details,design,phno,email,img_path) values (?,?,?,?,?,?,?,?,?,?)");
                 $stmt->bind_param("ssssssssss", $rollno, $name, $batch, $empstatus, $cmp_name, $cmp_details, $desig, $phno, $email, $img_path);
-                if ($stmt->execute()) 
-                {
-                    $count+=1;
+                try {
+                    if ($stmt->execute()) {
+                        $count += 1;
+                    }
                 }
-                else
+                catch(Exception $e)
                 {
-                    echo "A error occur while inserting the {$count} data line in CSV File,the error is :" . $stmt->error;
+                    echo "A error occur while inserting the {$count} data line in CSV File and the rest of records are not inserted in table";
                     unlink($csvFile);
                     exit();
 

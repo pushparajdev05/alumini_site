@@ -7,13 +7,17 @@ if(isset($_POST["admin_id"]))
     $action = mysqli_real_escape_string($con,$_POST["id"]);
     if($action=='0')
     {
-        $sql = "insert into admins values('{$admin}','{$pwd}')";
-        if($con->query($sql))
+        try
         {
-            echo 1;
+            $sql = "insert into admins values('{$admin}','{$pwd}')";
+            if($con->query($sql))
+            {
+                echo 1;
+            }
         }
-        else{
-            echo "Something went wrong the error is : ". $con->error;
+        catch(Exception $e)
+        {
+                echo "The User is already existed ";
         }
     }
     else
@@ -23,10 +27,15 @@ if(isset($_POST["admin_id"]))
             // echo $res;
         if ($res->num_rows > 0) {
             $sql1 = "delete from admins where id='{$admin}' and pwd='{$pwd}'";
-            if ($con->query($sql1)) {
-                echo 1;
-            } else {
-                echo "Something went wrong the error is : ". $con->error;
+            try
+            {
+                if ($con->query($sql1)) {
+                    echo 1;
+                }
+            }
+            catch(Exception $e)
+            {
+                    echo "The Username is not deleted";
             }
         } else {
             echo "Enter correct Email and Password";

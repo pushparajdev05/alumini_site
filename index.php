@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="./css/image_slider.css">
     <link rel="stylesheet" href="./assets/packages/sweetalert2/sweetalert2.min.css">
     <link rel="stylesheet" href="./css/index_responsive.css">
+        <script src="./javascript/scrollReveal.js"></script>
     <title>Dashboard</title>  
 </head>
 <body>
@@ -105,7 +106,7 @@
                 Alumini Meet
             </h1>
             <div class="img_desc">
-                <div class="img">
+                <div class="img scroll_left">
                     <img src="./assets/img/guidance.jpg" alt="No Image">
                     <div class="content">
                         <h1 class="heading">Guidance</h1>
@@ -114,7 +115,7 @@
                          iste exercitationem reiciendis amet veritatis officiis similique quae facilis ducimus eveniet natus ea! Animi, autem libero? Doloribus ut ullam blanditiis.</p>
                     </div>
                 </div>
-                <div class="img bottom">
+                <div class="img bottom scroll_right">
                     <img src="./assets/img/memories.jpg" alt="No Image">
                     <div class="content">
                         <h1 class="heading">Memories</h1>
@@ -166,7 +167,7 @@
     <section id="section7">
         <h1 class="heading">Alumni Of Measi IT</h1>
         <div class="scroller">
-        <ul class="lists">
+        <ul class="lists" id="list_items">
             <li class="item item1">   
                 <div class="alumini">
                     <div class="alu_img">
@@ -324,5 +325,7 @@
 
             }
         </script>
+        <script src="./javascript/animation.js"></script>
+            
 </body> 
 </html>

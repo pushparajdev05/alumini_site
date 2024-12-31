@@ -18,6 +18,7 @@ $(document).ready(() => {
                 success: function (res) {
                     let taken = parseInt(res);
                     // console.log(taken);
+                    console.log(res);
                     if (taken === 1)
                     {
                         $("#admin_id").val("");

@@ -21,6 +21,14 @@ if ($res->num_rows > 0) {
 				echo "image has not deleted from server " . $target_img;
 			}
 		}
+		else
+		{
+			if ($con->query($sql)) {
+					echo 1;
+				} else {
+					echo "Something went wrong while deleting , the error is :" . $con->error;
+				}
+		}
 	}
 	else
 	{
