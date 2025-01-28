@@ -33,7 +33,7 @@ require 'PHPMailer/src/SMTP.php';
         $res=$con->query($sql2);
         $subject = "verfication request from measi alumini";
         $message="<h1>New staff tried to sign up to staff page in alumini site with identity of {$uname}<h1>
-        <a href='http://localhost/alumini_site/backend/authentication/verify_login.php?token={$token}'>Verify Login</a>";
+        <a href='https://alumnitest.measiit.edu.in/alumini_site/backend/authentication/verify_login.php?token={$token}'>Verify Login</a>";
         if($res->num_rows > 0)
         {
             $mail = new PHPMailer(true);
@@ -44,8 +44,8 @@ require 'PHPMailer/src/SMTP.php';
                 $mail->isSMTP();                                            //Send using SMTP
                 $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
                 $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-                $mail->Username   = 'pushparajdev05@gmail.com';                     //SMTP username
-                $mail->Password   = 'ycjt mqmb iggh fwio';                               //SMTP password
+                $mail->Username   = 'alumni_admin@measiit.edu.in';                     //SMTP username
+                $mail->Password   = 'bten uuja btpg ncsg';                               //SMTP password
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;            //Enable implicit TLS encryption - use 465 port if set to SMTPSecure = PHPMailer::ENCRYPTION_SMTPS
                 $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
