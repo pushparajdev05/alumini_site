@@ -276,20 +276,38 @@
     <script type="module"> 
         const table1 = new DataTable('#myTable1',
     {
-                layout: {
-                    topStart: {
-                        buttons: ['copy', 'csv', 'excel', 'pdf']
-                    }
-                }
+                 dom: 'Bfrtip',
+        buttons: [{
+            extend: 'excelHtml5',
+            text: 'Excel',
+            exportOptions: { columns: ':not(:last-child)' }
+        }, {
+            extend: 'csvHtml5',
+            text: 'CSV',
+            exportOptions: { columns: ':not(:last-child)' }
+        }, {
+            extend: 'copyHtml5',
+            text: 'Copy',
+            exportOptions: { columns: ':not(:last-child)' }
+        },]
             }
 );
         const table2 = new DataTable('#myTable2',
     {
-                layout: {
-                    topStart: {
-                        buttons: ['copy', 'csv', 'excel', 'pdf']
-                    }
-                }
+                 dom: 'Bfrtip',
+        buttons: [{
+            extend: 'excelHtml5',
+            text: 'Excel',
+            exportOptions: { columns: ':not(:last-child)' }
+        }, {
+            extend: 'csvHtml5',
+            text: 'CSV',
+            exportOptions: { columns: ':not(:last-child)' }
+        }, {
+            extend: 'copyHtml5',
+            text: 'Copy',
+            exportOptions: { columns: ':not(:last-child)' }
+        },]
             }
 );
 

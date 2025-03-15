@@ -429,6 +429,14 @@ th:last-child
 {
   width:100%;
 }
+.dt-search,.dt-buttons
+{
+  display:inline-block;
+}
+.dt-buttons
+{
+  padding-right:10px;
+}
 @media screen and (max-width:1000px)
 {
  thead th span
