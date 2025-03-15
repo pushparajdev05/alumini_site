@@ -1,110 +1,59 @@
 
-// const option1={
-//     distance: '350px',
-//     duration: 2000,
-//     origin: 'left',
-//         viewFactor: 0.9
-    
-// };
-// const option2={
-//     distance: '350px',
-//     duration: 2000,
-//     origin: 'right',
-//         viewFactor: 0.9
-
-// };
-// const option3={
-//     distance: '150px',
-//     duration: 2000,
-//     origin: 'top',
-//         viewFactor: 0.9
-
-// };
-ScrollReveal().reveal("#section2 .left",{
+const option1={
     distance: '350px',
     duration: 2000,
     origin: 'left',
-        viewFactor: 0.9
+        viewFactor: 0.7
     
-});
-ScrollReveal().reveal("#section2 .right",{
+};
+const option2={
     distance: '350px',
     duration: 2000,
     origin: 'right',
-        viewFactor: 0.9
+        viewFactor: 0.7
 
-});
-ScrollReveal().reveal("#section3 .quotes",{
-    distance: '350px',
-    duration: 2000,
-    origin: 'left',
-        viewFactor: 0.9
-    
-});
-ScrollReveal().reveal("#section3 #discussion",{
+};
+const option3={
     distance: '150px',
     duration: 2000,
     origin: 'top',
-        viewFactor: 0.9
+        viewFactor: 0.7
 
-});
-ScrollReveal().reveal("#section4 .scroll_left",{
-    distance: '350px',
-    duration: 2000,
-    origin: 'left',
-        viewFactor: 0.9
-    
-});
-ScrollReveal().reveal("#section4 .scroll_right",{
-    distance: '350px',
-    duration: 2000,
-    origin: 'right',
-        viewFactor: 0.9
+};
 
-});
-ScrollReveal().reveal("#section5 .quotes",{
-    distance: '350px',
-    duration: 2000,
-    origin: 'right',
-        viewFactor: 0.9
+//scroll reveals animation instantiation
+const sr = ScrollReveal();
 
-});
-ScrollReveal().reveal("#section5 #discussion",{
-    distance: '150px',
-    duration: 2000,
-    origin: 'top',
-        viewFactor: 0.9
+// javascript media query handling here
+const mediaQuery = window.matchMedia('(min-width: 1024px)');
 
-});
-ScrollReveal().reveal("#section6 .left",{
-    distance: '350px',
-    duration: 2000,
-    origin: 'right',
-        viewFactor: 0.9
+function handleMediaQueryChange(event) {
 
-});
-ScrollReveal().reveal("#section6 .right",{
-    distance: '350px',
-    duration: 2000,
-    origin: 'left',
-        viewFactor: 0.9
-    
-});
-ScrollReveal().reveal("#section10 .quotes",{
-    distance: '350px',
-    duration: 2000,
-    origin: 'right',
-        viewFactor: 0.9
+    if (event.matches) {
+        sr.reveal("#section2 .left", option1);
+        sr.reveal("#section2 .right", option2);
+        sr.reveal("#section3 .quotes", option1);
+        sr.reveal("#section3 #discussion", option3);
+        sr.reveal("#section4 .scroll_left", option1);
+        sr.reveal("#section4 .scroll_right", option2);
+        sr.reveal("#section5 .quotes", option2);
+        sr.reveal("#section5 #discussion", option3);
+        sr.reveal("#section6 .left", option2);
+        sr.reveal("#section6 .right", option1);
+        sr.reveal("#section10 .quotes", option2);
+        sr.reveal("#section10 #discussion", option3);
 
-});
-ScrollReveal().reveal("#section10 #discussion", {
-    distance: '150px',
-    duration: 2000,
-    origin: 'top',
-        viewFactor: 0.9
+    } else {
+        sr.clean();
+    }
+}
 
-});
-ScrollReveal().reveal("#section3",);
+// Add a listener for changes in the media query
+mediaQuery.addListener(handleMediaQueryChange);
+
+// Initial check
+handleMediaQueryChange(mediaQuery);
+
 
 
 //alumni scroll animation hover animation
